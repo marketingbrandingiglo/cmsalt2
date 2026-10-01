@@ -1,0 +1,776 @@
+{
+  "page": {
+    "hero_image": "img/Banner/banner_aboutus.png",
+    "i5_logo": "logo/i5-fixed.png",
+    "video_file": "video/iglo_compro_sd.mp4",
+    "content": {
+      "id": {
+        "hero": {
+          "kicker": "TENTANG KAMI",
+          "title": "Kami Memberikan Solusi Terbaik untuk Anda",
+          "subtitle": "Para profesional TI membantu pengembangan dan pemeliharaan sistem perangkat keras serta perangkat lunak komputer. Mereka juga mengembangkan solusi teknologi baru bagi bisnis dan pemerintahan. Menjadi seorang ahli TI adalah jalur karier yang bermakna dan dapat memberi perbedaan nyata dalam kehidupan sehari-hari banyak orang."
+        },
+        "company": {
+          "name": "Indocyber Global Teknologi",
+          "p1": "Penyedia sistem informasi & teknologi terintegrasi yang berdedikasi menghadirkan solusi paling efektif di bidang Sistem Informasi. Bisnis inti kami berfokus pada layanan teknologi informasi, transformasi digital, dan infrastruktur TI.",
+          "p2": "Perusahaan kami berawal dari hanya 10 (sepuluh) personel; kini, setelah bertahun-tahun pengalaman, kami didukung oleh lebih dari 1000 konsultan dan developer."
+        },
+        "whoWeAreKicker": "Siapa Kami",
+        "visionTitle": "Visi Kami",
+        "vision": "Solusi TI dan Transformasi Digital yang terintegrasi, terdiversifikasi, dan terkemuka secara nasional.",
+        "missionTitle": "Misi Kami",
+        "mission": "Kami menghadirkan solusi TI dan Transformasi Digital terdepan untuk industri terspesialisasi dan secara konsisten menambah nilai demi menjaga loyalitas para pemangku kepentingan kami.",
+        "valuesIcon": "our values i5",
+        "valuesTitle": "Nilai-Nilai Kami",
+        "valuesKicker": "OUR VALUES i5",
+        "mascotTitle": "Kenali Mascot Kami",
+        "milestone": {
+          "title": "Milestone Kami",
+          "narrative": "Mengawali perjalanan sebagai mitra dan pengembang MAGIC, IGLO terus berupaya meningkatkan kinerjanya hingga menjadi bagian dari distributor MAGIC. Pada tahun berikutnya, IGLO berhasil meraih gelar sebagai SAP Partner. Kerja keras seluruh elemen perusahaan membuat IGLO terus berkembang dan menjadi mitra perusahaan-perusahaan ternama."
+        },
+        "video": {
+          "title": "Video Perusahaan",
+          "text": "Dengan bangga mempersembahkan video perusahaan IGLO! Ini akan membantu Anda untuk lebih mengenal, serta belajar lebih banyak tentang budaya perusahaan dan apa yang IGLO harapkan."
+        },
+        "partner": {
+          "title": "Mitra Kami"
+        },
+        "client": {
+          "title": "Klien Kami"
+        }
+      },
+      "en": {
+        "hero": {
+          "kicker": "ABOUT US",
+          "title": "We Give You The Best Solution",
+          "subtitle": "IT professionals help with the development and maintenance of computer hardware and software systems. They also develop new technology solutions for businesses and governments. Being an IT expert is a rewarding career path that can make a difference in people's daily lives."
+        },
+        "company": {
+          "name": "Indocyber Global Teknologi",
+          "p1": "An integrated information and technology system provider, dedicated to delivering highly effective solutions in the field of Information Systems. Our core business focuses on information technology services, digital transformation and IT infrastructure.",
+          "p2": "Our company started with only 10 (ten) personnel; currently, after years of experience, we are supported by more than 1000 consultants and developers."
+        },
+        "whoWeAreKicker": "Who We Are?",
+        "visionTitle": "Our Vision",
+        "vision": "Reputable Nation-wide Integrated, Diversified IT and Digital Transformation Solution.",
+        "missionTitle": "Our Mission",
+        "mission": "We provide a cutting-edge IT and Digital Transformation solution for specialized industries and consistently add value to retain the loyalty of our stakeholders.",
+        "valuesIcon": "our values i5",
+        "valuesTitle": "Our Values",
+        "valuesKicker": "OUR VALUES i5",
+        "mascotTitle": "Meet Our Mascot",
+        "milestone": {
+          "title": "Our Milestones",
+          "narrative": "Starting the journey as a partner and developer of MAGIC, IGLO continues to strive to improve its performance so that it becomes part of the MAGIC distributor. In the following year, IGLO managed to get the title as SAP Partner. The hard work of all elements of the company has made IGLO continue to expand its company and make it a partner of well-known companies."
+        },
+        "video": {
+          "title": "Company Video",
+          "text": "We proudly present IGLO's company video! It will help you get to know us better, and learn more about our company culture and what IGLO expects."
+        },
+        "partner": {
+          "title": "Our Partner"
+        },
+        "client": {
+          "title": "Our Client"
+        }
+      }
+    }
+  },
+  "highlights": [
+    {
+      "type": "stat",
+      "icon": "client",
+      "value": "50",
+      "text": {
+        "id": "Klien Teratas Telah Menjadi Klien Selama 10 Tahun Terakhir",
+        "en": "Top Clients Have Stayed With Us for the Past 10 Years"
+      }
+    },
+    {
+      "type": "stat",
+      "icon": "developer",
+      "value": "1100",
+      "text": {
+        "id": "Konsultan & Pengembang",
+        "en": "Consultants & Developers"
+      }
+    },
+    {
+      "type": "feature",
+      "icon": "speed",
+      "value": null,
+      "text": {
+        "id": "Mempercepat Kinerja Bisnis dan Ciptakan Nilai Nyata",
+        "en": "Accelerate Business Performance and Create Tangible Value"
+      }
+    },
+    {
+      "type": "feature",
+      "icon": "layers",
+      "value": null,
+      "text": {
+        "id": "Perusahaan Solusi & Layanan Transformasi Digital",
+        "en": "Digital Transformation Solutions & Services Company"
+      }
+    }
+  ],
+  "values": [
+    {
+      "title": "Integrity",
+      "description": {
+        "id": "Kami menjunjung kejujuran, etika, dan tanggung jawab dalam setiap hal yang kami lakukan.",
+        "en": "We uphold honesty, ethics, and accountability in everything we do."
+      },
+      "icon": "img/Our Values/ico_integrity_trn.png"
+    },
+    {
+      "title": "Involved",
+      "description": {
+        "id": "Kami sepenuhnya terlibat dan berkomitmen pada keberhasilan klien kami.",
+        "en": "We are fully engaged and committed to our clients' success."
+      },
+      "icon": "img/Our Values/ico_involved_trn.png"
+    },
+    {
+      "title": "Integrated",
+      "description": {
+        "id": "Kami menghadirkan solusi teknologi menyeluruh dan terpadu.",
+        "en": "We deliver unified, end-to-end technology solutions."
+      },
+      "icon": "img/Our Values/ico_integrated_trn.png"
+    },
+    {
+      "title": "Impressive",
+      "description": {
+        "id": "Kami konsisten melampaui ekspektasi dengan hasil berkualitas.",
+        "en": "We consistently exceed expectations with quality results."
+      },
+      "icon": "img/Our Values/ico_impressive_trn.png"
+    },
+    {
+      "title": "Innovative",
+      "description": {
+        "id": "Kami terus berinovasi dengan teknologi terkini.",
+        "en": "We continuously innovate with the latest technology."
+      },
+      "icon": "img/Our Values/ico_innovative_trn.png"
+    }
+  ],
+  "mascots": [
+    {
+      "key": "zenith",
+      "name": "Zenith",
+      "bio": {
+        "id": [
+          "Sebuah robot yang visioner, presisi, dan berorientasi pada pencapaian tertinggi. Ia merepresentasikan kecerdasan tingkat lanjut yang fokus pada akurasi, stabilitas, dan pengambilan keputusan yang strategis. Dengan sifat tegas namun tenang, Zenith mampu menganalisis situasi secara menyeluruh dan bertindak dengan penuh perhitungan",
+          "Zenith bukan hanya simbol teknologi canggih, tetapi juga keandalan dan kepemimpinan—menjadi representasi puncak performa, kemajuan, dan kepercayaan dalam setiap proses."
+        ],
+        "en": [
+          "A visionary, precise robot oriented toward the highest achievement. It represents advanced intelligence focused on accuracy, stability, and strategic decision-making. Firm yet composed, Zenith can analyze situations thoroughly and act with careful consideration.",
+          "Zenith is not just a symbol of advanced technology, but also of reliability and leadership — representing the peak of performance, progress, and trust in every process."
+        ]
+      },
+      "scene_image": "img/Mascot/zenith_1.png",
+      "profile_image": "img/Mascot/zenith_show.png"
+    },
+    {
+      "key": "elio",
+      "name": "Elio",
+      "bio": {
+        "id": [
+          "Sebuah robot yang cerdas, ramah, dan penuh empati. Ia dirancang untuk responsif terhadap kebutuhan manusia, mampu beradaptasi dengan cepat, serta selalu mengedepankan efisiensi tanpa kehilangan sentuhan personal.",
+          "Dengan karakter yang optimis dan komunikatif, Elio merepresentasikan teknologi yang bukan hanya pintar, tetapi juga dapat dipercaya, suportif, dan menyenangkan untuk diajak berinteraksi, menjadi partner yang membantu, bukan sekadar alat."
+        ],
+        "en": [
+          "A robot that is intelligent, friendly, and full of empathy. It is designed to be responsive to human needs, able to adapt quickly, and always prioritizes efficiency without losing a personal touch.",
+          "With an optimistic and communicative character, Elio represents technology that isn't just smart, but also trustworthy, supportive, and enjoyable to interact with — a helpful partner, not just a tool."
+        ]
+      },
+      "scene_image": "img/Mascot/elio_nova_1.png",
+      "profile_image": "img/Mascot/elio_show.png"
+    },
+    {
+      "key": "aero",
+      "name": "Aero",
+      "bio": {
+        "id": [
+          "Sebuah robot yang gesit, adaptif, dan penuh semangat eksplorasi. Ia merepresentasikan kecepatan berpikir, fleksibilitas, serta kemampuan bergerak selaras dengan perubahan yang cepat. Dengan sifat komunikatif dan solutif, Aero selalu siap mencari cara paling efektif dan inovatif dalam menghadapi tantangan.",
+          "Karakternya mencerminkan teknologi yang ringan namun bertenaga—cepat, cerdas, dan selalu selangkah lebih maju dalam mendukung produktivitas dan kreativitas."
+        ],
+        "en": [
+          "A robot that is agile, adaptive, and full of exploratory spirit. It represents speed of thought, flexibility, and the ability to move in step with rapid change. With a communicative, solution-driven nature, Aero is always ready to find the most effective and innovative way to face challenges.",
+          "Its character reflects technology that is light yet powerful — fast, smart, and always one step ahead in supporting productivity and creativity."
+        ]
+      },
+      "scene_image": "img/Mascot/aero_1.png",
+      "profile_image": "img/Mascot/aero_show.png"
+    },
+    {
+      "key": "nova",
+      "name": "Nova",
+      "bio": {
+        "id": [
+          "Sebuah robot yang kreatif, visioner, dan membawa semangat pembaruan. Ia merepresentasikan ide-ide segar, keberanian untuk berinovasi, serta kemampuan melihat peluang di tengah perubahan.",
+          "Dengan sifat hangat dan komunikatif, Nova mendorong kolaborasi dan pertumbuhan, sekaligus menghadirkan solusi yang relevan dan berdampak. Karakternya mencerminkan cahaya awal dari sebuah kemajuan, memberi inspirasi, arah baru, dan dorongan untuk terus berkembang."
+        ],
+        "en": [
+          "A creative, visionary robot carrying a spirit of renewal. It represents fresh ideas, the courage to innovate, and the ability to spot opportunity amid change.",
+          "With a warm, communicative nature, Nova drives collaboration and growth while delivering solutions that are relevant and impactful. Its character reflects the first light of progress — offering inspiration, new direction, and the push to keep growing."
+        ]
+      },
+      "scene_image": null,
+      "profile_image": "img/Mascot/nova_show.png"
+    }
+  ],
+  "milestones": [
+    {
+      "period": "2021 - Present",
+      "logos": [
+        {
+          "name": "Tableau",
+          "logo": "img/Client & Partner IGLO/2021-Present/ico_tableau.png"
+        },
+        {
+          "name": "WhaTap",
+          "logo": "img/Client & Partner IGLO/2021-Present/ico_whatap.png"
+        },
+        {
+          "name": "Telstra",
+          "logo": "img/Client & Partner IGLO/2021-Present/ico_telstra.png"
+        },
+        {
+          "name": "Fortanix",
+          "logo": "img/Client & Partner IGLO/2021-Present/ico_fortanix.png"
+        },
+        {
+          "name": "Creatio",
+          "logo": "img/Client & Partner IGLO/2021-Present/ico_creatio.png"
+        },
+        {
+          "name": "ACI Worldwide",
+          "logo": "img/Client & Partner IGLO/2021-Present/ico_aci_worldwide.png"
+        },
+        {
+          "name": "Tilaka Nusa Teknologi",
+          "logo": "img/Client & Partner IGLO/2021-Present/ico_tilaka.png"
+        },
+        {
+          "name": "Informatica",
+          "logo": "img/Client & Partner IGLO/2021-Present/ico_informatica.png"
+        },
+        {
+          "name": "JurisTech",
+          "logo": "img/Client & Partner IGLO/2021-Present/ico_juristech.png"
+        },
+        {
+          "name": "Software AG",
+          "logo": "img/Client & Partner IGLO/2021-Present/ico_softwareag.png"
+        },
+        {
+          "name": "Newgen",
+          "logo": "img/Client & Partner IGLO/2021-Present/ico_newgen.png"
+        },
+        {
+          "name": "Cyclone",
+          "logo": "img/Client & Partner IGLO/2021-Present/ico_cyclone.png"
+        },
+        {
+          "name": "Xoxoday",
+          "logo": "img/Client & Partner IGLO/2021-Present/ico_xoxoday.png"
+        },
+        {
+          "name": "Tada",
+          "logo": "img/Client & Partner IGLO/2021-Present/ico_tada.png"
+        },
+        {
+          "name": "Zscaler",
+          "logo": "img/Client & Partner IGLO/2021-Present/ico_zscaler.png"
+        },
+        {
+          "name": "Okta",
+          "logo": "img/Client & Partner IGLO/2021-Present/ico_okta.png"
+        },
+        {
+          "name": "DynaFront",
+          "logo": "img/Client & Partner IGLO/2021-Present/ico_dynafront.png"
+        },
+        {
+          "name": "Solace",
+          "logo": "img/Client & Partner IGLO/2021-Present/ico_solace.png"
+        },
+        {
+          "name": "Katalon",
+          "logo": "img/Client & Partner IGLO/2021-Present/ico_katalon.png"
+        },
+        {
+          "name": "Palo Alto Networks",
+          "logo": "img/Client & Partner IGLO/2021-Present/ico_paloalto.png"
+        },
+        {
+          "name": "IBM",
+          "logo": "img/Client & Partner IGLO/2021-Present/ico_ibm.png"
+        },
+        {
+          "name": "Delphix",
+          "logo": "img/Client & Partner IGLO/2021-Present/ico_delphix.png"
+        },
+        {
+          "name": "Finastra",
+          "logo": "img/Client & Partner IGLO/2021-Present/ico_finastra.png"
+        },
+        {
+          "name": "OBS",
+          "logo": "img/Client & Partner IGLO/2021-Present/ico_obs.png"
+        },
+        {
+          "name": "Sonar",
+          "logo": "img/Client & Partner IGLO/2021-Present/ico_sonar.png"
+        },
+        {
+          "name": "SecIron",
+          "logo": "img/Client & Partner IGLO/2021-Present/ico_seciron.png"
+        }
+      ]
+    },
+    {
+      "period": "2016 - 2020",
+      "logos": [
+        {
+          "name": "LAMP",
+          "logo": "img/Client & Partner IGLO/2016-2020/ico_lamp.png"
+        },
+        {
+          "name": "DataRobot",
+          "logo": "img/Client & Partner IGLO/2016-2020/ico_datarobot.png"
+        },
+        {
+          "name": "3Dolphins SRM",
+          "logo": "img/Client & Partner IGLO/2016-2020/ico_3dolphins.png"
+        },
+        {
+          "name": "UiPath",
+          "logo": "img/Client & Partner IGLO/2016-2020/ico_uipath.png"
+        },
+        {
+          "name": "Mitra APPI",
+          "logo": "img/Client & Partner IGLO/2016-2020/ico_mitra_appi.png"
+        },
+        {
+          "name": "Blockchain Finhacks Finalist",
+          "logo": "img/Client & Partner IGLO/2016-2020/ico_finalis_finhack2019.png"
+        }
+      ]
+    },
+    {
+      "period": "2011 - 2015",
+      "logos": [
+        {
+          "name": "Oracle Gold Partner",
+          "logo": "img/Client & Partner IGLO/2011-2015/ico_oracle_goldpartner.png"
+        },
+        {
+          "name": "TIBCO",
+          "logo": "img/Client & Partner IGLO/2011-2015/ico_tibco.png"
+        }
+      ]
+    },
+    {
+      "period": "2006 - 2010",
+      "logos": [
+        {
+          "name": "Oracle PartnerNetwork",
+          "logo": "img/Client & Partner IGLO/2006-2010/ico_oracle.png"
+        },
+        {
+          "name": "Telkomsel Corporate Business Solutions",
+          "logo": "img/Client & Partner IGLO/2006-2010/ico_telkomsel.png"
+        },
+        {
+          "name": "Microsoft Partner Network",
+          "logo": "img/Client & Partner IGLO/2006-2010/ico_microsoft_partner.png"
+        },
+        {
+          "name": "BlackBerry Alliance Elite Member",
+          "logo": "img/Client & Partner IGLO/2006-2010/ico_blackberry.png"
+        }
+      ]
+    },
+    {
+      "period": "2001 - 2005",
+      "logos": [
+        {
+          "name": "Magic Software Solution & Developer Partner",
+          "logo": "img/Client & Partner IGLO/2001-2005/ico_magic_partner.png"
+        },
+        {
+          "name": "Magic Software Authorized Distributor",
+          "logo": "img/Client & Partner IGLO/2001-2005/ico_magic_distributor.png"
+        },
+        {
+          "name": "SAP",
+          "logo": "img/Client & Partner IGLO/2001-2005/ico_sap.png"
+        }
+      ]
+    }
+  ],
+  "partners": [
+    {
+      "name": "SAP",
+      "logo": "img/Our Partner/ico_sap.png"
+    },
+    {
+      "name": "Creatio",
+      "logo": "img/Our Partner/ico_creatio.png"
+    },
+    {
+      "name": "Software AG",
+      "logo": "img/Our Partner/ico_softwareag.png"
+    },
+    {
+      "name": "Informatica",
+      "logo": "img/Our Partner/ico_informatica.png"
+    },
+    {
+      "name": "UiPath",
+      "logo": "img/Our Partner/ico_uipath.png"
+    },
+    {
+      "name": "Newgen",
+      "logo": "img/Our Partner/ico_newgen.png"
+    },
+    {
+      "name": "DataRobot",
+      "logo": "img/Our Partner/ico_datarobot.png"
+    },
+    {
+      "name": "3Dolphins SRM",
+      "logo": "img/Our Partner/ico_3dolphins.png"
+    },
+    {
+      "name": "LAMP",
+      "logo": "img/Our Partner/ico_lamp.png"
+    },
+    {
+      "name": "JurisTech",
+      "logo": "img/Our Partner/ico_juristech.png"
+    },
+    {
+      "name": "Katalon",
+      "logo": "img/Our Partner/ico_katalon.png"
+    },
+    {
+      "name": "WhaTap",
+      "logo": "img/Our Partner/ico_whatap.png"
+    }
+  ],
+  "clientCategories": [
+    {
+      "name": {
+        "id": "Multifinance",
+        "en": "Multifinance"
+      },
+      "clients": [
+        {
+          "name": "ACC",
+          "logo": "img/Our Client/Multifinance/ico_acc.png"
+        },
+        {
+          "name": "Astra Financial",
+          "logo": "img/Our Client/Multifinance/ico_astrafinancial.png"
+        },
+        {
+          "name": "BCA Finance",
+          "logo": "img/Our Client/Multifinance/ico_bcafinance.png"
+        },
+        {
+          "name": "BFI Finance",
+          "logo": "img/Our Client/Multifinance/ico_bfifinance.png"
+        },
+        {
+          "name": "CSUL Finance",
+          "logo": "img/Our Client/Multifinance/ico_csulfinance.png"
+        },
+        {
+          "name": "Dipo Star Finance",
+          "logo": "img/Our Client/Multifinance/ico_dipostarfinance.png"
+        },
+        {
+          "name": "Esta Dana Ventura",
+          "logo": "img/Our Client/Multifinance/ico_estadanaventura.png"
+        },
+        {
+          "name": "FIFGROUP",
+          "logo": "img/Our Client/Multifinance/ico_fifgroup.png"
+        },
+        {
+          "name": "Komatsu",
+          "logo": "img/Our Client/Multifinance/ico_komatsu.png"
+        },
+        {
+          "name": "Kredit Plus",
+          "logo": "img/Our Client/Multifinance/ico_kreditplus.png"
+        },
+        {
+          "name": "Kresna Reksa Finance",
+          "logo": "img/Our Client/Multifinance/ico_kresnareksafinance.png"
+        },
+        {
+          "name": "Mandala Finance",
+          "logo": "img/Our Client/Multifinance/ico_mandala.png"
+        },
+        {
+          "name": "Mandiri Utama Finance",
+          "logo": "img/Our Client/Multifinance/ico_mandiriutamafinance.png"
+        },
+        {
+          "name": "Radana Finance",
+          "logo": "img/Our Client/Multifinance/ico_radanafinance.png"
+        },
+        {
+          "name": "SANF",
+          "logo": "img/Our Client/Multifinance/ico_sanf.png"
+        },
+        {
+          "name": "Sarana Multi Infrastruktur",
+          "logo": "img/Our Client/Multifinance/ico_saranamultiinfrastruktur.png"
+        },
+        {
+          "name": "SMS Finance",
+          "logo": "img/Our Client/Multifinance/ico_smsfinance.png"
+        },
+        {
+          "name": "TAF",
+          "logo": "img/Our Client/Multifinance/ico_taf.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "id": "Asuransi",
+        "en": "Insurance"
+      },
+      "clients": [
+        {
+          "name": "AIA",
+          "logo": "img/Our Client/Insurance/ico_aia.png"
+        },
+        {
+          "name": "Asuransi Astra",
+          "logo": "img/Our Client/Insurance/ico_asuransiastra.png"
+        },
+        {
+          "name": "Aviva",
+          "logo": "img/Our Client/Insurance/ico_aviva.png"
+        },
+        {
+          "name": "AXA",
+          "logo": "img/Our Client/Insurance/ico_axa.png"
+        },
+        {
+          "name": "BhinekaLife",
+          "logo": "img/Our Client/Insurance/ico_bhinekalife.png"
+        },
+        {
+          "name": "Car Life Insurance",
+          "logo": "img/Our Client/Insurance/ico_carlife.png"
+        },
+        {
+          "name": "Chubb",
+          "logo": "img/Our Client/Insurance/ico_chubb.png"
+        },
+        {
+          "name": "Cigna",
+          "logo": "img/Our Client/Insurance/ico_cigna.png"
+        },
+        {
+          "name": "FWD Insurance",
+          "logo": "img/Our Client/Insurance/ico_fwd.png"
+        },
+        {
+          "name": "Generali",
+          "logo": "img/Our Client/Insurance/ico_generali.png"
+        },
+        {
+          "name": "IFG",
+          "logo": "img/Our Client/Insurance/ico_ifg.png"
+        },
+        {
+          "name": "Jasindo",
+          "logo": "img/Our Client/Insurance/ico_jasindo.png"
+        },
+        {
+          "name": "PFI Mega Life",
+          "logo": "img/Our Client/Insurance/ico_pfimegalife.png"
+        },
+        {
+          "name": "Prudential",
+          "logo": "img/Our Client/Insurance/ico_prudential.png"
+        },
+        {
+          "name": "Sequis Life",
+          "logo": "img/Our Client/Insurance/ico_sequislife.png"
+        },
+        {
+          "name": "Sompo Insurance",
+          "logo": "img/Our Client/Insurance/ico_sompoinsurance.png"
+        },
+        {
+          "name": "Sun Life",
+          "logo": "img/Our Client/Insurance/ico_sunlife.png"
+        },
+        {
+          "name": "Tokio Marine",
+          "logo": "img/Our Client/Insurance/ico_tokiomarine.png"
+        },
+        {
+          "name": "Zurich",
+          "logo": "img/Our Client/Insurance/ico_zurich.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "id": "Bank",
+        "en": "Bank"
+      },
+      "clients": [
+        {
+          "name": "Bank Aladin",
+          "logo": "img/Our Client/Bank/ico_aladin.png"
+        },
+        {
+          "name": "Bank BTN",
+          "logo": "img/Our Client/Bank/ico_bankbtn.png"
+        },
+        {
+          "name": "Bank BTPN",
+          "logo": "img/Our Client/Bank/ico_bankbtpn.png"
+        },
+        {
+          "name": "Bank Sampoerna",
+          "logo": "img/Our Client/Bank/ico_banksampoerna.png"
+        },
+        {
+          "name": "Bank Sinarmas",
+          "logo": "img/Our Client/Bank/ico_banksinarmas.png"
+        },
+        {
+          "name": "BCA",
+          "logo": "img/Our Client/Bank/ico_bca.png"
+        },
+        {
+          "name": "BNI",
+          "logo": "img/Our Client/Bank/ico_bni46.png"
+        },
+        {
+          "name": "BRI",
+          "logo": "img/Our Client/Bank/ico_bri.png"
+        },
+        {
+          "name": "Bank Mandiri",
+          "logo": "img/Our Client/Bank/ico_mandiri.png"
+        },
+        {
+          "name": "UOB",
+          "logo": "img/Our Client/Bank/ico_uob.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "id": "Retail & Manufaktur",
+        "en": "Retail & Manufacture"
+      },
+      "clients": [
+        {
+          "name": "KFC",
+          "logo": "img/Our Client/Retail Manufacture/ico_kfc.png"
+        },
+        {
+          "name": "Medion",
+          "logo": "img/Our Client/Retail Manufacture/ico_medion.png"
+        },
+        {
+          "name": "Shop & Drive",
+          "logo": "img/Our Client/Retail Manufacture/ico_shopanddrive.png"
+        },
+        {
+          "name": "Sparepart Factory",
+          "logo": "img/Our Client/Retail Manufacture/ico_sparepartfactory.png"
+        },
+        {
+          "name": "Sukanda Djaya",
+          "logo": "img/Our Client/Retail Manufacture/ico_sukandajaya.png"
+        },
+        {
+          "name": "Tip Top",
+          "logo": "img/Our Client/Retail Manufacture/ico_tiptop.png"
+        },
+        {
+          "name": "Wings Group",
+          "logo": "img/Our Client/Retail Manufacture/ico_wings.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "id": "Lainnya",
+        "en": "Others"
+      },
+      "clients": [
+        {
+          "name": "Astra Honda Motor",
+          "logo": "img/Our Client/Others/ico_ahm.png"
+        },
+        {
+          "name": "Anteraja",
+          "logo": "img/Our Client/Others/ico_anteraja.png"
+        },
+        {
+          "name": "Berlian Sistem Informasi",
+          "logo": "img/Our Client/Others/ico_berliansisteminformasi.png"
+        },
+        {
+          "name": "Bethsaida Hospital",
+          "logo": "img/Our Client/Others/ico_bethsaida.png"
+        },
+        {
+          "name": "Blue Bird",
+          "logo": "img/Our Client/Others/ico_bluebird.png"
+        },
+        {
+          "name": "Gudang Garam",
+          "logo": "img/Our Client/Others/ico_gundanggaram.png"
+        },
+        {
+          "name": "PLN",
+          "logo": "img/Our Client/Others/ico_pln.png"
+        },
+        {
+          "name": "Telkomsigma",
+          "logo": "img/Our Client/Others/ico_telkomsigma.png"
+        },
+        {
+          "name": "Tigaraksa Satria",
+          "logo": "img/Our Client/Others/ico_tigaraksasatria.png"
+        },
+        {
+          "name": "Tower Bersama Group",
+          "logo": "img/Our Client/Others/ico_towerbersamagroup.png"
+        },
+        {
+          "name": "Trakindo",
+          "logo": "img/Our Client/Others/ico_trakindo.png"
+        },
+        {
+          "name": "TTNI",
+          "logo": "img/Our Client/Others/ico_ttni.png"
+        },
+        {
+          "name": "XL Axiata",
+          "logo": "img/Our Client/Others/ico_xl.png"
+        }
+      ]
+    }
+  ]
+}
