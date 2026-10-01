@@ -13,10 +13,10 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         User::query()->firstOrCreate(
-            ['email' => env('CMS_ADMIN_EMAIL', 'design@indocyber.id')],
+            ['email' => config('cms.admin.email')],
             [
-                'name' => env('CMS_ADMIN_NAME', 'Admin IGLO'),
-                'password' => env('CMS_ADMIN_PASSWORD', 'iglocms123'),
+                'name' => config('cms.admin.name'),
+                'password' => config('cms.admin.password') ?: 'iglocms123',
             ],
         );
 

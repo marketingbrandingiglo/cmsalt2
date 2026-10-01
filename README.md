@@ -98,7 +98,7 @@ Panduan memasang API ini di frontend Next.js: **[docs/INTEGRASI-FRONTEND.md](doc
 | `CMS_ADMIN_NAME/EMAIL/PASSWORD` | Akun admin yang dibuat seeder |
 | `FRONTEND_URL` | Tombol "Lihat halaman" + prefix URL media yang belum diimpor ke storage CMS. Kosong = path relatif `/img/...` |
 | `CORS_ALLOWED_ORIGINS` | Domain frontend yang boleh memanggil API (pisahkan koma) |
-| `CMS_ASSETS_SOURCE` | Opsional — path `public/` frontend agar `db:seed` sekalian menjalankan `cms:import-assets` |
+| `CMS_ASSETS_SOURCE` | Opsional — folder `public/` frontend **atau URL situs frontend**; media diimpor saat `db:seed` / `cms:install` |
 | `CMS_MEDIA_DISK` | Disk upload (default `public`; bisa `s3`) |
 | `CMS_CACHE_TTL` | Lama cache API (detik), `0` = tanpa cache |
 
@@ -110,6 +110,7 @@ Upload video dibatasi 100 MB (lihat `config/livewire.php`). Pastikan juga
 ```
 app/
 ├── Console/Commands/ImportAboutAssets.php   # php artisan cms:import-assets
+├── Console/Commands/InstallCms.php          # php artisan cms:install (dipakai saat deploy)
 ├── Filament/
 │   ├── Pages/ManageAboutPage.php            # "Konten Halaman" (singleton, tab per seksi)
 │   ├── Resources/                           # Statistik, Nilai i5, Maskot, Milestone, Mitra, Klien
@@ -149,14 +150,18 @@ php artisan test     # API (bentuk payload, fallback bahasa, cache, media) + pan
 vendor/bin/pint      # code style
 ```
 
-## Deploy (ringkas)
+## Deploy
 
-1. Server PHP 8.3+ dengan MySQL; `composer install --no-dev --optimize-autoloader`.
-2. `.env` produksi: `APP_ENV=production`, `APP_DEBUG=false`, `APP_URL=https://cms.domain`,
-   kredensial DB, `FRONTEND_URL`, `CORS_ALLOWED_ORIGINS`.
-3. `php artisan migrate --force && php artisan db:seed --force` (**sekali saja** di awal),
-   `php artisan storage:link`, `php artisan cms:import-assets <path public frontend>`.
-4. `php artisan optimize` dan `php artisan filament:optimize`.
-5. Ganti password admin default.
-6. Di frontend (Vercel) set `NEXT_PUBLIC_CMS_URL`, lalu ikuti
-   [docs/INTEGRASI-FRONTEND.md](docs/INTEGRASI-FRONTEND.md).
+**Railway (disarankan):** ikuti **[docs/DEPLOY-RAILWAY.md](docs/DEPLOY-RAILWAY.md)** — cukup
+klik di dashboard; repo sudah berisi `Dockerfile`, `railway.json`, dan `docker/start.sh`.
+
+Saat container start, `docker/start.sh` menjalankan `php artisan cms:install` (idempoten):
+migrasi, isi konten awal **hanya bila database kosong**, buat admin pertama, `storage:link`,
+dan impor media dari `CMS_ASSETS_SOURCE` (folder atau URL situs frontend). `APP_KEY` dibuat
+sekali dan disimpan di volume bila tidak di-set.
+
+**Hosting lain / VPS:** image Docker yang sama bisa dipakai (port `8080`, health check `/up`,
+volume ke `/app/storage`). Tanpa Docker: `composer install --no-dev -o`, set `.env` produksi,
+`php artisan cms:install`, `php artisan optimize`, lalu arahkan web server ke `public/`.
+Ganti password admin default dan set `NEXT_PUBLIC_CMS_URL` di frontend
+([docs/INTEGRASI-FRONTEND.md](docs/INTEGRASI-FRONTEND.md)).

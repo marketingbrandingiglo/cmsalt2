@@ -12,23 +12,28 @@ use App\Support\AboutContent;
 use Illuminate\Console\Attributes\Description;
 use Illuminate\Console\Attributes\Signature;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+use Throwable;
 
 /**
- * Menyalin gambar/video halaman About dari folder public/ frontend
- * (mis. ../iglowebsitealt2/public) ke storage CMS, dengan path yang sama
- * seperti yang tersimpan di database. Setelah diimpor, media bisa
- * dipratinjau & diganti dari panel admin dan dilayani langsung oleh CMS.
+ * Menyalin gambar/video halaman About dari frontend ke storage CMS, dengan
+ * path yang sama seperti yang tersimpan di database. Sumber bisa berupa
+ * folder public/ frontend (mis. ../iglowebsitealt2/public) atau URL situs
+ * frontend (mis. https://iglowebsitealt2.vercel.app). Setelah diimpor,
+ * media bisa dipratinjau & diganti dari panel admin dan dilayani oleh CMS.
  */
-#[Signature('cms:import-assets {source : Path folder public/ milik frontend Next.js} {--force : Timpa file yang sudah ada}')]
+#[Signature('cms:import-assets {source : Folder public/ frontend atau URL situs frontend} {--force : Timpa file yang sudah ada}')]
 #[Description('Impor media halaman About dari folder public/ frontend ke storage CMS')]
 class ImportAboutAssets extends Command
 {
     public function handle(): int
     {
         $source = rtrim($this->argument('source'), '/');
+        $remote = Str::startsWith($source, ['http://', 'https://']);
 
-        if (! is_dir($source)) {
+        if (! $remote && ! is_dir($source)) {
             $this->error("Folder tidak ditemukan: {$source}");
 
             return self::FAILURE;
@@ -40,13 +45,6 @@ class ImportAboutAssets extends Command
 
         foreach ($this->paths() as $path) {
             $path = ltrim($path, '/');
-            $file = "{$source}/{$path}";
-
-            if (! is_file($file)) {
-                $missing[] = $path;
-
-                continue;
-            }
 
             if ($disk->exists($path) && ! $this->option('force')) {
                 $skipped++;
@@ -54,7 +52,14 @@ class ImportAboutAssets extends Command
                 continue;
             }
 
-            $stream = fopen($file, 'r');
+            $stream = $remote ? $this->download($source, $path) : $this->open("{$source}/{$path}");
+
+            if (! $stream) {
+                $missing[] = $path;
+
+                continue;
+            }
+
             $disk->writeStream($path, $stream, ['visibility' => 'public']);
             is_resource($stream) && fclose($stream);
             $copied++;
@@ -69,6 +74,37 @@ class ImportAboutAssets extends Command
         }
 
         return self::SUCCESS;
+    }
+
+    /**
+     * @return resource|null
+     */
+    private function open(string $file)
+    {
+        return is_file($file) ? fopen($file, 'r') : null;
+    }
+
+    /**
+     * @return resource|null
+     */
+    private function download(string $baseUrl, string $path)
+    {
+        $url = $baseUrl.'/'.implode('/', array_map('rawurlencode', explode('/', $path)));
+        $sink = tmpfile();
+
+        try {
+            $response = Http::timeout(120)->retry(2, 1000, throw: false)->sink($sink)->get($url);
+        } catch (Throwable) {
+            return null;
+        }
+
+        if (! $response->successful()) {
+            return null;
+        }
+
+        rewind($sink);
+
+        return $sink;
     }
 
     /**

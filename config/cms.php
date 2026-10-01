@@ -40,4 +40,20 @@ return [
     */
     'cache_ttl' => (int) env('CMS_CACHE_TTL', 3600),
 
+    /*
+    |--------------------------------------------------------------------------
+    | Instalasi (php artisan cms:install / db:seed)
+    |--------------------------------------------------------------------------
+    | admin       : akun admin pertama.
+    | assets_source: folder public/ atau URL situs frontend tempat media
+    |               About diimpor saat instalasi (kosong = lewati).
+    */
+    'admin' => [
+        'name' => env('CMS_ADMIN_NAME', 'Admin IGLO'),
+        'email' => env('CMS_ADMIN_EMAIL', 'design@indocyber.id'),
+        'password' => env('CMS_ADMIN_PASSWORD'),
+    ],
+
+    'assets_source' => env('CMS_ASSETS_SOURCE'),
+
 ];

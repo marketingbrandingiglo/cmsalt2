@@ -67,7 +67,7 @@ class AboutSeeder extends Seeder
 
         AboutContent::flush();
 
-        if ($source = env('CMS_ASSETS_SOURCE')) {
+        if ($source = config('cms.assets_source')) {
             $this->command?->call('cms:import-assets', ['source' => $source]);
         }
     }
