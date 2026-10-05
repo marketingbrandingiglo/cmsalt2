@@ -83,6 +83,15 @@ service → **⋯ → Shell / SSH** lalu `php artisan make:filament-user`.
 
 ---
 
+## Mengatasi masalah
+
+| Gejala di Deploy Logs | Penyebab & solusi |
+|---|---|
+| `Invalid URI` / `!! APP_URL tidak valid ('https://')` | Domain belum dibuat, jadi `${{RAILWAY_PUBLIC_DOMAIN}}` kosong. Lakukan langkah 4 (Generate Domain, port 8080), lalu Redeploy. |
+| `!! storage/ bukan volume` | Volume belum dipasang di service CMS (langkah 3, mount path `/app/storage`). |
+| `Menunggu database siap (30/30)` lalu gagal | `DB_URL` salah. Pastikan `${{MySQL.MYSQL_URL}}` memakai nama service MySQL Anda. |
+| MySQL menampilkan *Post-deploy: Not started* | Normal — MySQL tidak punya perintah post-deploy. Selama statusnya **Online**, tidak berpengaruh. |
+
 ## Catatan
 
 - **Deploy berikutnya aman**: data tidak di-seed ulang, hasil edit dan upload tetap ada

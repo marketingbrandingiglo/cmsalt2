@@ -3,8 +3,21 @@
 set -e
 cd "${APP_DIR:-/app}"
 
+APP_URL_ORIG="$APP_URL"
 echo "== IGLO CMS: start (APP_ENV=${APP_ENV:-?}, DB_CONNECTION=${DB_CONNECTION:-<kosong>}, DB_URL $( [ -n "$DB_URL" ] && echo terisi || echo KOSONG ), PORT=${PORT:-8080})"
-[ -n "$APP_URL" ] || echo "!! APP_URL kosong — set APP_URL=https://\${{RAILWAY_PUBLIC_DOMAIN}}"
+# APP_URL wajib punya host. Di Railway, `https://${{RAILWAY_PUBLIC_DOMAIN}}` menjadi
+# "https://" saja bila domain belum dibuat → Laravel gagal "Invalid URI".
+APP_URL_HOST=$(printf '%s' "$APP_URL" | sed -E 's#^[a-zA-Z]+://##; s#[/:?].*$##')
+if [ -z "$APP_URL_HOST" ]; then
+  if [ -n "$RAILWAY_PUBLIC_DOMAIN" ]; then
+    APP_URL="https://$RAILWAY_PUBLIC_DOMAIN"
+  else
+    APP_URL="http://localhost:${PORT:-8080}"
+    echo "!! APP_URL tidak valid ('${APP_URL_ORIG:-kosong}') — domain belum dibuat? Settings > Networking > Generate Domain, lalu redeploy."
+  fi
+  export APP_URL
+fi
+echo "== APP_URL=$APP_URL"
 if command -v mountpoint >/dev/null 2>&1 && ! mountpoint -q storage; then
   echo "!! storage/ bukan volume — file upload akan hilang saat redeploy (pasang volume ke /app/storage)"
 fi
