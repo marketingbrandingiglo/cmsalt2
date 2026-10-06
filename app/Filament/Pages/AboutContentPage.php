@@ -15,8 +15,8 @@ use Filament\Support\Icons\Heroicon;
 use UnitEnum;
 
 /**
- * Dasar halaman "Konten Halaman" (Hero) beserta sub-menunya
- * (Siapa Kami, Visi & Misi, Video). Tiap halaman hanya menyimpan
+ * Dasar halaman "Konten Halaman" (Hero), sub-menu Siapa Kami &
+ * Visi & Misi, serta menu Video. Tiap halaman hanya menyimpan
  * field miliknya — bagian lain di about_pages.content tidak tersentuh.
  */
 abstract class AboutContentPage extends Page

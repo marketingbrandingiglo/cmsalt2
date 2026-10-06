@@ -12,11 +12,9 @@ class ManageAboutVideo extends AboutContentPage
 {
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedFilm;
 
-    protected static ?string $navigationParentItem = ManageAboutPage::NAVIGATION_LABEL;
-
     protected static ?string $navigationLabel = 'Video';
 
-    protected static ?int $navigationSort = 3;
+    protected static ?int $navigationSort = 8;
 
     protected static ?string $slug = 'about/content/video';
 

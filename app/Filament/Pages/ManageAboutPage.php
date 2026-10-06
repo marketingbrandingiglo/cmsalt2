@@ -10,8 +10,9 @@ use Filament\Support\Icons\Heroicon;
 
 /**
  * Menu "Konten Halaman" — bagian Hero. Sub-menunya: Siapa Kami,
- * Visi & Misi, Video. Judul seksi lain (Nilai i5, Maskot, Milestone,
- * Mitra, Klien) ada di atas tabel pada menu masing-masing.
+ * Visi & Misi, Statistik & Keunggulan. Judul seksi lain (Nilai i5, Maskot,
+ * Milestone, Partner, Klien) ada di atas tabel pada menu masing-masing;
+ * Video punya menu sendiri.
  */
 class ManageAboutPage extends AboutContentPage
 {

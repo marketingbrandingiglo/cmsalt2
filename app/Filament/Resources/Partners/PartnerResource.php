@@ -31,11 +31,11 @@ class PartnerResource extends Resource
 
     protected static ?int $navigationSort = 6;
 
-    protected static ?string $navigationLabel = 'Mitra';
+    protected static ?string $navigationLabel = 'Partner';
 
-    protected static ?string $modelLabel = 'mitra';
+    protected static ?string $modelLabel = 'partner';
 
-    protected static ?string $pluralModelLabel = 'Mitra Kami';
+    protected static ?string $pluralModelLabel = 'Partner';
 
     protected static ?string $slug = 'about/partners';
 
@@ -46,7 +46,7 @@ class PartnerResource extends Resource
         return $schema
             ->components([
                 TextInput::make('name')
-                    ->label('Nama mitra (alt text)')
+                    ->label('Nama partner (alt text)')
                     ->required()
                     ->maxLength(255),
                 TextInput::make('url')

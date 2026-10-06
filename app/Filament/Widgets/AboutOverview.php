@@ -30,7 +30,7 @@ class AboutOverview extends StatsOverviewWidget
             Stat::make('Logo milestone', MilestoneLogo::count())
                 ->icon(Heroicon::OutlinedTrophy)
                 ->url(MilestonePeriodResource::getUrl()),
-            Stat::make('Mitra aktif', Partner::active()->count())
+            Stat::make('Partner aktif', Partner::active()->count())
                 ->icon(Heroicon::OutlinedBriefcase)
                 ->url(PartnerResource::getUrl()),
             Stat::make('Klien aktif', Client::active()->count())

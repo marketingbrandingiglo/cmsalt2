@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\AboutHighlights;
 
+use App\Filament\Pages\ManageAboutPage;
 use App\Filament\Resources\AboutHighlights\Pages\ManageAboutHighlights;
 use App\Filament\Support\Bilingual;
 use App\Models\AboutHighlight;
@@ -31,7 +32,9 @@ class AboutHighlightResource extends Resource
 
     protected static string|UnitEnum|null $navigationGroup = 'Tentang Kami';
 
-    protected static ?int $navigationSort = 2;
+    protected static ?string $navigationParentItem = ManageAboutPage::NAVIGATION_LABEL;
+
+    protected static ?int $navigationSort = 3;
 
     protected static ?string $navigationLabel = 'Statistik & Keunggulan';
 

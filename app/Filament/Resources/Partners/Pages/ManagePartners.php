@@ -23,18 +23,18 @@ class ManagePartners extends ManageRecords
 
     protected function aboutSectionHeading(): string
     {
-        return 'Judul seksi Mitra';
+        return 'Judul seksi Partner';
     }
 
     protected function aboutSectionDescription(): ?string
     {
-        return 'Judul seksi “Mitra Kami”. Logo mitra ada di tabel di bawah.';
+        return 'Judul seksi “Our Partner”. Logo partner ada di tabel di bawah.';
     }
 
     protected function aboutSectionFields(): array
     {
         return [
-            Bilingual::input('partner.title', 'Judul seksi mitra', 'content'),
+            Bilingual::input('partner.title', 'Judul seksi partner', 'content'),
         ];
     }
 }
