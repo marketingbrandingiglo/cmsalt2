@@ -3,8 +3,8 @@
 > **Status: SUDAH TERPASANG** di `iglowebsitealt2` (branch `main`). Implementasi akhirnya
 > sedikit berbeda dari langkah di bawah: browser memanggil **`/api/cms/about` milik website**
 > (`app/api/cms/about/route.js`), yang meneruskan ke `GET /api/about` CMS di server dan
-> di-cache CDN Vercel 60 detik — jadi tidak bergantung pada CORS, dan perubahan di CMS tampil
-> di website paling lambat ±1 menit. URL CMS default `https://cmsalt2-production.up.railway.app`,
+> tidak di-cache (selalu data terbaru) — jadi tidak bergantung pada CORS, dan perubahan di CMS
+> tampil di website begitu halaman di-refresh. URL CMS default `https://cmsalt2-production.up.railway.app`,
 > bisa diganti dengan env `CMS_URL` di Vercel. Hook ada di `components/useAboutContent.js`.
 
 CMS ini menyajikan konten halaman `/about` lewat REST API dengan **bentuk JSON yang
@@ -19,8 +19,8 @@ mengganti sumber data `t.about` → data CMS, tanpa merombak komponen.
 | GET | `/api/about/id` | konten Bahasa Indonesia |
 | GET | `/api/about/en` | konten English |
 
-Respons di-cache (default 1 jam, `CMS_CACHE_TTL`) dan **otomatis dibersihkan setiap
-kali admin menyimpan perubahan**.
+Respons CMS tidak di-cache secara default (`CMS_CACHE_TTL=0`), jadi perubahan di admin
+langsung terbaca.
 
 ### Kunci tambahan dibanding `lib/content.js`
 

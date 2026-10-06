@@ -89,8 +89,8 @@ Contoh potongan respons `/api/about/en`:
 }
 ```
 
-Respons di-cache (`CMS_CACHE_TTL`, default 3600 detik) dan otomatis di-refresh setiap
-ada perubahan di admin. CORS diatur lewat `CORS_ALLOWED_ORIGINS`.
+Secara default respons **tidak** di-cache di CMS (`CMS_CACHE_TTL=0`), jadi perubahan di admin
+langsung terbaca API. CORS diatur lewat `CORS_ALLOWED_ORIGINS`.
 
 Panduan memasang API ini di frontend Next.js: **[docs/INTEGRASI-FRONTEND.md](docs/INTEGRASI-FRONTEND.md)**.
 
@@ -103,7 +103,7 @@ Panduan memasang API ini di frontend Next.js: **[docs/INTEGRASI-FRONTEND.md](doc
 | `CORS_ALLOWED_ORIGINS` | Domain frontend yang boleh memanggil API (pisahkan koma) |
 | `CMS_ASSETS_SOURCE` | Opsional — folder `public/` frontend **atau URL situs frontend**; media diimpor saat `db:seed` / `cms:install` |
 | `CMS_MEDIA_DISK` | Disk upload (default `public`; bisa `s3`) |
-| `CMS_CACHE_TTL` | Lama cache API (detik), `0` = tanpa cache |
+| `CMS_CACHE_TTL` | Lama cache API (detik), default `0` = tanpa cache (disarankan) |
 
 Upload video dibatasi 100 MB (lihat `config/livewire.php`). Pastikan juga
 `upload_max_filesize` & `post_max_size` di `php.ini` server ≥ 100M.

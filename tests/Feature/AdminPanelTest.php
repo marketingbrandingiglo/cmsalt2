@@ -15,6 +15,7 @@ use App\Filament\Resources\MilestonePeriods\Pages\ListMilestonePeriods;
 use App\Filament\Resources\Partners\Pages\ManagePartners;
 use App\Models\AboutPage;
 use App\Models\ClientCategory;
+use App\Models\Partner;
 use App\Models\User;
 use Database\Seeders\AboutSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -151,5 +152,18 @@ class AdminPanelTest extends TestCase
         $category = ClientCategory::first();
         Livewire::test(EditClientCategory::class, ['record' => $category->getRouteKey()])
             ->assertSet('data.name.en', 'Multifinance');
+    }
+
+    public function test_reordering_is_reflected_in_the_api_even_with_cache_enabled(): void
+    {
+        config(['cms.cache_ttl' => 3600]);
+
+        $first = $this->getJson('/api/about/id')->json('partner.logos.0.alt');
+        $ids = Partner::ordered()->pluck('id')->all();
+
+        Livewire::test(ManagePartners::class)
+            ->call('reorderTable', array_map('strval', array_reverse($ids)));
+
+        $this->assertNotSame($first, $this->getJson('/api/about/id')->json('partner.logos.0.alt'));
     }
 }

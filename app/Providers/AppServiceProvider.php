@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Support\AboutContent;
+use Filament\Tables\Table;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 
@@ -25,5 +27,9 @@ class AppServiceProvider extends ServiceProvider
         if (str_starts_with((string) config('app.url'), 'https://')) {
             URL::forceScheme('https');
         }
+
+        // Atur urutan (drag & drop) di tabel Filament menulis langsung ke
+        // database tanpa event model — bersihkan cache API secara eksplisit.
+        Table::configureUsing(fn (Table $table) => $table->afterReordering(fn () => AboutContent::flush()));
     }
 }

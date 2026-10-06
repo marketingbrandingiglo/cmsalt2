@@ -35,10 +35,14 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Cache respons API (detik). 0 = tanpa cache.
+    | Cache respons API (detik). 0 = tanpa cache (default).
     |--------------------------------------------------------------------------
+    | Default 0 agar setiap perubahan di admin langsung terbaca API. Beberapa
+    | aksi Filament (atur urutan, hapus massal) menulis langsung ke database
+    | tanpa event model, jadi cache yang lama bisa menahan perubahan. Beban
+    | ke CMS sudah dibatasi di sisi frontend.
     */
-    'cache_ttl' => (int) env('CMS_CACHE_TTL', 3600),
+    'cache_ttl' => (int) env('CMS_CACHE_TTL', 0),
 
     /*
     |--------------------------------------------------------------------------
