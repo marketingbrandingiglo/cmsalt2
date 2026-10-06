@@ -25,7 +25,7 @@ fi
 # storage/ bisa berupa volume persisten yang awalnya kosong.
 mkdir -p storage/app/public storage/app/private \
          storage/framework/cache/data storage/framework/sessions storage/framework/views \
-         storage/logs bootstrap/cache
+         storage/logs bootstrap/cache resources/views
 
 # APP_KEY: pakai env bila ada; kalau tidak, buat sekali & simpan di volume
 # supaya tetap sama di setiap deploy (session/login tidak hilang).
