@@ -1,5 +1,12 @@
 # Integrasi ke frontend Next.js (iglowebsitealt2)
 
+> **Status: SUDAH TERPASANG** di `iglowebsitealt2` (branch `main`). Implementasi akhirnya
+> sedikit berbeda dari langkah di bawah: browser memanggil **`/api/cms/about` milik website**
+> (`app/api/cms/about/route.js`), yang meneruskan ke `GET /api/about` CMS di server dan
+> di-cache CDN Vercel 60 detik — jadi tidak bergantung pada CORS, dan perubahan di CMS tampil
+> di website paling lambat ±1 menit. URL CMS default `https://cmsalt2-production.up.railway.app`,
+> bisa diganti dengan env `CMS_URL` di Vercel. Hook ada di `components/useAboutContent.js`.
+
 CMS ini menyajikan konten halaman `/about` lewat REST API dengan **bentuk JSON yang
 sama persis** seperti `content[lang].about` di `lib/content.js`. Jadi integrasi cukup
 mengganti sumber data `t.about` → data CMS, tanpa merombak komponen.
