@@ -2,9 +2,16 @@
 
 namespace Tests\Feature;
 
+use App\Filament\Pages\ManageAboutCompany;
 use App\Filament\Pages\ManageAboutPage;
+use App\Filament\Pages\ManageAboutVideo;
+use App\Filament\Pages\ManageAboutVisionMission;
 use App\Filament\Resources\AboutHighlights\Pages\ManageAboutHighlights;
 use App\Filament\Resources\ClientCategories\Pages\EditClientCategory;
+use App\Filament\Resources\ClientCategories\Pages\ListClientCategories;
+use App\Filament\Resources\CompanyValues\Pages\ManageCompanyValues;
+use App\Filament\Resources\Mascots\Pages\ManageMascots;
+use App\Filament\Resources\MilestonePeriods\Pages\ListMilestonePeriods;
 use App\Filament\Resources\Partners\Pages\ManagePartners;
 use App\Models\AboutPage;
 use App\Models\ClientCategory;
@@ -38,7 +45,8 @@ class AdminPanelTest extends TestCase
         $category = ClientCategory::first();
 
         foreach ([
-            '/admin', '/admin/about/content', '/admin/about/highlights', '/admin/about/values',
+            '/admin', '/admin/about/content', '/admin/about/content/who-we-are',
+            '/admin/about/content/vision-mission', '/admin/about/content/video', '/admin/about/highlights', '/admin/about/values',
             '/admin/about/mascots', '/admin/about/milestones', '/admin/about/milestones/1/edit',
             '/admin/about/partners', '/admin/about/clients', "/admin/about/clients/{$category->id}/edit",
         ] as $url) {
@@ -48,14 +56,71 @@ class AdminPanelTest extends TestCase
 
     public function test_content_page_saves_bilingual_text(): void
     {
-        Livewire::test(ManageAboutPage::class)
-            ->assertSet('data.content.id.hero.title', 'Kami Memberikan Solusi Terbaik untuk Anda')
+        Livewire::test(ManageAboutVisionMission::class)
+            ->assertSet('data.content.id.visionTitle', 'Visi Kami')
             ->set('data.content.en.vision', 'New vision')
             ->call('save')
             ->assertHasNoErrors();
 
         $this->assertSame('New vision', AboutPage::singleton()->content['en']['vision']);
         $this->getJson('/api/about/en')->assertJsonPath('vision', 'New vision');
+    }
+
+    public function test_saving_one_sub_page_keeps_the_rest_of_the_content(): void
+    {
+        $before = AboutPage::singleton()->content;
+
+        Livewire::test(ManageAboutCompany::class)
+            ->set('data.content.id.company.p1', 'Paragraf baru')
+            ->call('save')
+            ->assertHasNoErrors();
+
+        Livewire::test(ManageAboutVideo::class)->call('save')->assertHasNoErrors();
+        Livewire::test(ManageAboutPage::class)->call('save')->assertHasNoErrors();
+
+        $after = AboutPage::singleton()->content;
+        $this->assertSame('Paragraf baru', $after['id']['company']['p1']);
+
+        $before['id']['company']['p1'] = 'Paragraf baru';
+        $this->assertSame($before, $after);
+        $this->assertSame('img/Banner/banner_aboutus.png', AboutPage::singleton()->hero_image);
+    }
+
+    public function test_section_headings_are_edited_above_each_table(): void
+    {
+        Livewire::test(ManageCompanyValues::class)
+            ->assertSet('sectionData.content.en.valuesKicker', 'OUR VALUES i5')
+            ->set('sectionData.content.en.valuesTitle', 'Core Values')
+            ->call('saveSection')
+            ->assertHasNoErrors()
+            ->assertCountTableRecords(5);
+
+        Livewire::test(ManageMascots::class)
+            ->set('sectionData.content.id.mascotTitle', 'Maskot Kami')
+            ->call('saveSection');
+
+        Livewire::test(ListMilestonePeriods::class)
+            ->set('sectionData.content.en.milestone.narrative', 'Our story')
+            ->call('saveSection');
+
+        Livewire::test(ManagePartners::class)
+            ->set('sectionData.content.en.partner.title', 'Partners')
+            ->call('saveSection');
+
+        Livewire::test(ListClientCategories::class)
+            ->set('sectionData.content.en.client.title', 'Clients')
+            ->call('saveSection')
+            ->assertCountTableRecords(5);
+
+        $this->getJson('/api/about/en')
+            ->assertJsonPath('valuesTitle', 'Core Values')
+            ->assertJsonPath('milestone.narrative', 'Our story')
+            ->assertJsonPath('milestone.title', 'Our Milestones')
+            ->assertJsonPath('partner.title', 'Partners')
+            ->assertJsonPath('client.title', 'Clients')
+            ->assertJsonPath('hero.title', 'We Give You The Best Solution');
+        $this->getJson('/api/about/id')->assertJsonPath('mascotTitle', 'Maskot Kami');
+        $this->assertSame('logo/i5-fixed.png', AboutPage::singleton()->i5_logo);
     }
 
     public function test_primary_locale_title_is_required(): void

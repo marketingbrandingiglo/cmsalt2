@@ -29,6 +29,21 @@ class AboutPage extends Model
     }
 
     /**
+     * Simpan sebagian konten (mis. hanya Visi & Misi) tanpa menghapus
+     * bagian lain: teks digabung per kunci ke JSON `content` yang ada.
+     *
+     * @param  array<string, mixed>  $data
+     */
+    public function updateContent(array $data): void
+    {
+        if (array_key_exists('content', $data)) {
+            $data['content'] = array_replace_recursive($this->content ?? [], (array) $data['content']);
+        }
+
+        $this->update($data);
+    }
+
+    /**
      * Teks per locale dengan fallback per-kunci ke Bahasa Indonesia.
      */
     public function contentFor(string $locale): array

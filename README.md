@@ -17,13 +17,16 @@ Semua ada di grup menu **Tentang Kami** pada panel admin (`/admin`):
 
 | Menu | Seksi di halaman /about | Isi |
 |---|---|---|
-| **Konten Halaman** | semua teks seksi | Tab: Hero (banner + kicker/judul/subjudul), Siapa Kami, Visi & Misi, Nilai i5 (logo i5 + judul), Maskot & Milestone (judul + narasi), Video (file video + poster + teks), Mitra & Klien (judul seksi) |
-| **Statistik & Keunggulan** | panel "company points" | Statistik ("Lebih Dari 1100" + label) & keunggulan (ikon + teks); bisa diurutkan, disembunyikan |
-| **Nilai i5** | lingkaran nilai i5 | Integrity, Involved, Integrated, Impressive, Innovative — ikon & deskripsi |
-| **Maskot** | Meet Our Mascot | Zenith, Elio, Aero, Nova — nama, bio multi-paragraf (ID/EN), gambar scene & profil |
-| **Milestone** | Our Milestones | Periode (2001-2005 … 2021-Present) beserta logo partner/penghargaan per periode |
-| **Mitra** | Our Partner | Logo mitra + nama (alt) + website opsional |
-| **Klien** | Our Client | Tab kategori (Multifinance, Asuransi, Bank, …) beserta logo klien |
+| **Konten Halaman** | Hero | Banner hero + kicker/judul/subjudul |
+| ↳ **Siapa Kami** | panel "Who We Are" | Nama perusahaan, label, paragraf 1 & 2 |
+| ↳ **Visi & Misi** | panel Visi & Misi | Judul + isi visi dan misi |
+| ↳ **Video** | Video Perusahaan | File video, poster, judul, deskripsi |
+| **Statistik & Keunggulan** | panel "company points" | Statistik ("Lebih Dari 1100" + label) & keunggulan (ikon + teks) |
+| **Nilai i5** | lingkaran nilai i5 | Di atas: logo i5 + judul/subjudul seksi. Tabel: 5 nilai (ikon & penjelasan) |
+| **Maskot** | Meet Our Mascot | Di atas: judul seksi. Tabel: Zenith, Elio, Aero, Nova (bio ID/EN, gambar) |
+| **Milestone** | Our Milestones | Di atas: judul & narasi. Tabel: periode beserta logo |
+| **Mitra** | Our Partner | Di atas: judul seksi. Tabel: logo mitra + nama + website |
+| **Klien** | Our Client | Di atas: judul seksi. Tabel: tab kategori beserta logo klien |
 
 Semua daftar mendukung **drag & drop urutan**, toggle **tampil/sembunyi**, dan **upload gambar**.
 Seeder mengisi CMS dengan konten yang saat ini tampil di website.
@@ -112,7 +115,8 @@ app/
 ├── Console/Commands/ImportAboutAssets.php   # php artisan cms:import-assets
 ├── Console/Commands/InstallCms.php          # php artisan cms:install (dipakai saat deploy)
 ├── Filament/
-│   ├── Pages/ManageAboutPage.php            # "Konten Halaman" (singleton, tab per seksi)
+│   ├── Concerns/EditsAboutSection.php       # form judul seksi di atas tabel (Nilai i5, Maskot, …)
+│   ├── Pages/                               # Konten Halaman (Hero) + Siapa Kami, Visi & Misi, Video
 │   ├── Resources/                           # Statistik, Nilai i5, Maskot, Milestone, Mitra, Klien
 │   ├── Support/Bilingual.php                # field ID | EN berdampingan
 │   ├── Support/MediaUpload.php              # konfigurasi upload gambar/video
