@@ -2,16 +2,15 @@
 
 namespace App\Console\Commands;
 
+use App\Console\Concerns\WaitsForDatabase;
 use App\Models\AboutPage;
 use App\Models\User;
 use Database\Seeders\AboutSeeder;
 use Illuminate\Console\Attributes\Description;
 use Illuminate\Console\Attributes\Signature;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Str;
-use Throwable;
 
 /**
  * Langkah instalasi idempoten — aman dijalankan setiap kali server start
@@ -26,6 +25,8 @@ use Throwable;
 #[Description('Migrasi + isi data awal (sekali) + impor media halaman About')]
 class InstallCms extends Command
 {
+    use WaitsForDatabase;
+
     public function handle(): int
     {
         if (! $this->waitForDatabase()) {
@@ -52,56 +53,6 @@ class InstallCms extends Command
         }
 
         return self::SUCCESS;
-    }
-
-    /**
-     * Di hosting, database (mis. MySQL Railway) bisa belum siap menerima
-     * koneksi tepat saat container start — tunggu dulu, lalu beri pesan
-     * yang jelas bila konfigurasinya memang salah.
-     */
-    private function waitForDatabase(int $attempts = 30, int $sleepSeconds = 2): bool
-    {
-        $connection = config('database.default');
-        $config = config("database.connections.{$connection}", []);
-
-        // DB_URL (mis. ${{MySQL.MYSQL_URL}} di Railway) menimpa host/database.
-        if ($url = parse_url((string) ($config['url'] ?? ''))) {
-            $config['host'] = $url['host'] ?? $config['host'] ?? null;
-            $config['database'] = isset($url['path']) ? ltrim($url['path'], '/') : ($config['database'] ?? null);
-        }
-
-        $this->components->info(sprintf(
-            'Database: %s (host: %s, db: %s)',
-            $connection,
-            $config['host'] ?? '-',
-            $config['database'] ?? '-',
-        ));
-
-        if (app()->isProduction() && $connection === 'sqlite') {
-            $this->components->warn('DB_CONNECTION masih sqlite — data akan hilang saat redeploy. Set DB_CONNECTION=mysql dan DB_URL.');
-        }
-
-        for ($i = 1; $i <= $attempts; $i++) {
-            try {
-                DB::connection()->getPdo();
-
-                return true;
-            } catch (Throwable $e) {
-                if ($i === $attempts) {
-                    $this->components->error('Tidak bisa terhubung ke database: '.$e->getMessage());
-                    $this->line('  Periksa variabel DB_CONNECTION=mysql dan DB_URL=${{MySQL.MYSQL_URL}} di service ini,');
-                    $this->line('  dan pastikan nama service database sama dengan yang dipakai di ${{...}}.');
-
-                    return false;
-                }
-
-                $this->line("  Menunggu database siap ({$i}/{$attempts})...");
-                DB::purge();
-                sleep($sleepSeconds);
-            }
-        }
-
-        return false;
     }
 
     private function createAdmin(): void

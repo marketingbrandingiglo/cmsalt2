@@ -9,11 +9,11 @@ use App\Models\Mascot;
 use App\Models\MilestoneLogo;
 use App\Models\Partner;
 use App\Support\AboutContent;
+use App\Support\Media;
 use Illuminate\Console\Attributes\Description;
 use Illuminate\Console\Attributes\Signature;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Throwable;
 
@@ -39,14 +39,14 @@ class ImportAboutAssets extends Command
             return self::FAILURE;
         }
 
-        $disk = Storage::disk(config('cms.media_disk'));
+        $disk = Media::disk();
         $copied = $skipped = 0;
-        $missing = [];
+        $missing = $failed = [];
 
         foreach ($this->paths() as $path) {
             $path = ltrim($path, '/');
 
-            if ($disk->exists($path) && ! $this->option('force')) {
+            if (! $this->option('force') && Media::exists($path)) {
                 $skipped++;
 
                 continue;
@@ -60,8 +60,16 @@ class ImportAboutAssets extends Command
                 continue;
             }
 
-            $disk->writeStream($path, $stream, ['visibility' => 'public']);
+            // Tanpa ACL di object storage (R2 menolaknya) — lihat Media::visibility().
+            $written = $disk->writeStream($path, $stream, array_filter(['visibility' => Media::visibility()]));
             is_resource($stream) && fclose($stream);
+
+            if ($written === false) {
+                $failed[] = $path;
+
+                continue;
+            }
+
             $copied++;
         }
 
@@ -71,6 +79,10 @@ class ImportAboutAssets extends Command
 
         foreach ($missing as $path) {
             $this->warn("  - {$path}");
+        }
+
+        foreach ($failed as $path) {
+            $this->error("  Gagal menulis ke disk media: {$path}");
         }
 
         return self::SUCCESS;

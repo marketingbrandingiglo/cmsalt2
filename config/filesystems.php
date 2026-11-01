@@ -47,6 +47,27 @@ return [
             'report' => false,
         ],
 
+        // Cloudflare R2 (S3-compatible) — dipakai di Vercel (MEDIA_DISK=r2),
+        // karena filesystem container tidak permanen. R2_PUBLIC_URL = URL
+        // r2.dev / custom domain tempat frontend memuat gambar.
+        'r2' => [
+            'driver' => 's3',
+            'key' => env('R2_ACCESS_KEY_ID'),
+            'secret' => env('R2_SECRET_ACCESS_KEY'),
+            'region' => 'auto',
+            'bucket' => env('R2_BUCKET'),
+            'url' => env('R2_PUBLIC_URL'),
+            'endpoint' => env('R2_ENDPOINT'),
+            'use_path_style_endpoint' => true,
+            // R2 tidak punya ACL per objek: jangan baca ACL saat menyalin/
+            // memindahkan file (mis. upload sementara Livewire → path final).
+            'retain_visibility' => false,
+            // Sengaja TANPA 'visibility': R2 menolak ACL public-read per objek.
+            // Akses publik diatur di level bucket (r2.dev / custom domain).
+            'throw' => false,
+            'report' => false,
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),

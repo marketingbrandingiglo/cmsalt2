@@ -19,8 +19,11 @@ return [
     |--------------------------------------------------------------------------
     | Disk upload media
     |--------------------------------------------------------------------------
+    | "public" (storage/app/public) untuk lokal / Railway dengan volume;
+    | "r2" (Cloudflare R2) untuk Vercel, yang filesystem-nya tidak permanen.
+    | MEDIA_DISK (nama yang dipakai di DEPLOY-VERCEL.md) atau CMS_MEDIA_DISK.
     */
-    'media_disk' => env('CMS_MEDIA_DISK', 'public'),
+    'media_disk' => env('MEDIA_DISK', env('CMS_MEDIA_DISK', 'public')),
 
     /*
     |--------------------------------------------------------------------------
@@ -48,14 +51,15 @@ return [
     |--------------------------------------------------------------------------
     | Instalasi (php artisan cms:install / db:seed)
     |--------------------------------------------------------------------------
-    | admin       : akun admin pertama.
+    | admin       : akun admin pertama. ADMIN_EMAIL / ADMIN_PASSWORD (nama di
+    |               DEPLOY-VERCEL.md) atau CMS_ADMIN_EMAIL / CMS_ADMIN_PASSWORD.
     | assets_source: folder public/ atau URL situs frontend tempat media
     |               About diimpor saat instalasi (kosong = lewati).
     */
     'admin' => [
-        'name' => env('CMS_ADMIN_NAME', 'Admin IGLO'),
-        'email' => env('CMS_ADMIN_EMAIL', 'design@indocyber.id'),
-        'password' => env('CMS_ADMIN_PASSWORD'),
+        'name' => env('ADMIN_NAME', env('CMS_ADMIN_NAME', 'Admin IGLO')),
+        'email' => env('ADMIN_EMAIL', env('CMS_ADMIN_EMAIL', 'design@indocyber.id')),
+        'password' => env('ADMIN_PASSWORD', env('CMS_ADMIN_PASSWORD')),
     ],
 
     'assets_source' => env('CMS_ASSETS_SOURCE'),

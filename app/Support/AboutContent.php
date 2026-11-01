@@ -42,6 +42,7 @@ class AboutContent
     public static function flush(): void
     {
         Cache::forget(self::CACHE_KEY);
+        Media::forgetListing();
     }
 
     public static function build(string $locale): array

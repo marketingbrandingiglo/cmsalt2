@@ -102,7 +102,8 @@ Panduan memasang API ini di frontend Next.js: **[docs/INTEGRASI-FRONTEND.md](doc
 | `FRONTEND_URL` | Tombol "Lihat halaman" + prefix URL media yang belum diimpor ke storage CMS. Kosong = path relatif `/img/...` |
 | `CORS_ALLOWED_ORIGINS` | Domain frontend yang boleh memanggil API (pisahkan koma) |
 | `CMS_ASSETS_SOURCE` | Opsional — folder `public/` frontend **atau URL situs frontend**; media diimpor saat `db:seed` / `cms:install` |
-| `CMS_MEDIA_DISK` | Disk upload (default `public`; bisa `s3`) |
+| `MEDIA_DISK` / `CMS_MEDIA_DISK` | Disk upload: `public` (default) atau `r2` (Cloudflare R2, untuk Vercel; isi juga `R2_*`) |
+| `ADMIN_EMAIL` / `ADMIN_PASSWORD` | Sama dengan `CMS_ADMIN_EMAIL/PASSWORD` (dipakai `cms:bootstrap` di Vercel) |
 | `CMS_CACHE_TTL` | Lama cache API (detik), default `0` = tanpa cache (disarankan) |
 
 Upload video dibatasi 100 MB (lihat `config/livewire.php`). Pastikan juga
@@ -113,7 +114,8 @@ Upload video dibatasi 100 MB (lihat `config/livewire.php`). Pastikan juga
 ```
 app/
 ├── Console/Commands/ImportAboutAssets.php   # php artisan cms:import-assets
-├── Console/Commands/InstallCms.php          # php artisan cms:install (dipakai saat deploy)
+├── Console/Commands/InstallCms.php          # php artisan cms:install (Railway: docker/start.sh)
+├── Console/Commands/BootstrapCms.php        # php artisan cms:bootstrap (Vercel: docker/vercel-start.sh)
 ├── Filament/
 │   ├── Concerns/EditsAboutSection.php       # form judul seksi di atas tabel (Nilai i5, Maskot, …)
 │   ├── Pages/                               # Konten Halaman (Hero), Siapa Kami, Visi & Misi, Video
@@ -156,7 +158,11 @@ vendor/bin/pint      # code style
 
 ## Deploy
 
-**Railway (disarankan):** ikuti **[docs/DEPLOY-RAILWAY.md](docs/DEPLOY-RAILWAY.md)** — cukup
+**Vercel (gratis, tanpa kartu) + Neon + Cloudflare R2:** ikuti
+**[docs/DEPLOY-VERCEL.md](docs/DEPLOY-VERCEL.md)** — `vercel.json`, `Dockerfile.vercel`,
+`docker/vercel-start.sh`, perintah `php artisan cms:bootstrap`.
+
+**Railway:** ikuti **[docs/DEPLOY-RAILWAY.md](docs/DEPLOY-RAILWAY.md)** — cukup
 klik di dashboard; repo sudah berisi `Dockerfile`, `railway.json`, dan `docker/start.sh`.
 
 Saat container start, `docker/start.sh` menjalankan `php artisan cms:install` (idempoten):
