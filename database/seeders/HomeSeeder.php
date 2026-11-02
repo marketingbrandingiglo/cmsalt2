@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\DB;
 
 /**
  * Mengisi CMS dengan konten halaman Beranda yang saat ini ada di
- * lib/content.js frontend (indocyber-website-v2). Sumber: data/home.json.
+ * lib/content.js frontend (iglowebsitealt2). Sumber: data/home.json.
  *
  * Aman dijalankan ulang: seluruh tabel Beranda dikosongkan lalu diisi ulang.
  */

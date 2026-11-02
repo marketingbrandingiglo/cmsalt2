@@ -4,7 +4,7 @@
 > sedikit berbeda dari langkah di bawah: browser memanggil **`/api/cms/about` milik website**
 > (`app/api/cms/about/route.js`), yang meneruskan ke `GET /api/about` CMS di server dan
 > tidak di-cache (selalu data terbaru) — jadi tidak bergantung pada CORS, dan perubahan di CMS
-> tampil di website begitu halaman di-refresh. URL CMS default `https://cmsalt2-production.up.railway.app`,
+> tampil di website begitu halaman di-refresh. URL CMS default `https://iglo-cmsalt2.vercel.app`,
 > bisa diganti dengan env `CMS_URL` di Vercel. Hook ada di `components/useAboutContent.js`.
 
 CMS ini menyajikan konten halaman `/about` lewat REST API dengan **bentuk JSON yang
@@ -104,8 +104,11 @@ bila `FRONTEND_URL` kosong) sehingga tetap memakai aset di `public/` Next.js.
 
 # Halaman Beranda / Home
 
-> **Status: API siap, BELUM dipasang di frontend** (`indocyber-website-v2`). Langkah di bawah
-> mengikuti pola yang sudah dipakai halaman About (proxy `/api/cms/...` + hook dengan fallback).
+> **Status: SUDAH TERPASANG** di `iglowebsitealt2` (branch `claude/deploy-cms-vercel-neon-r2-5fjikb`,
+> tayang setelah digabung ke `main`): proxy `app/api/cms/home/route.js` + `components/useHomeContent.js`,
+> dipakai `app/page.js`, `HeroSlider`, `IntroScene`, `ProductCarousel`, `ProductGlassCarousel`,
+> `NewsMosaic`. Slider di-mount ulang bila jumlah item dari CMS berbeda dari konten statis.
+> Slug produk harus sama dengan halaman `/products/{slug}` di website (`t.productPages`).
 
 `GET /api/home` mengembalikan kunci-kunci `content[lang]` di `lib/content.js` yang dipakai
 `app/page.js` beserta komponennya — **dengan bentuk yang sama**:

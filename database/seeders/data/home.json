@@ -87,7 +87,7 @@
   ],
   "products": [
     {
-      "slug": "layanan-it-profesional",
+      "slug": "it-professional-service",
       "name": "IT Professional Service",
       "image": "img/ProducSolHome/img_producsol_1.webp",
       "short": {
@@ -104,7 +104,7 @@
       }
     },
     {
-      "slug": "platform-integrasi-magic-xpi",
+      "slug": "magic-xpi",
       "name": "Integration Platform – Magic xpi",
       "image": "img/ProducSolHome/img_producsol_2.webp",
       "short": {
@@ -138,7 +138,7 @@
       }
     },
     {
-      "slug": "magic-xpa-low-code-platform",
+      "slug": "magic-xpa",
       "name": "Low-Code Platform – Magic xpa",
       "image": "img/ProducSolHome/img_producsol_4.webp",
       "short": {
@@ -155,7 +155,7 @@
       }
     },
     {
-      "slug": "pembiayaan-keuangan",
+      "slug": "leasing-finance",
       "name": "Leasing & Finance",
       "image": "img/ProducSolHome/img_producsol_5.webp",
       "short": {

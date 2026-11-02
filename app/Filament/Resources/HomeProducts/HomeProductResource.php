@@ -58,7 +58,7 @@ class HomeProductResource extends Resource
                     ->required()
                     ->maxLength(255)
                     ->alphaDash()
-                    ->helperText('Tombol "Pelajari Lebih Lanjut" menuju /product-solution/{slug}.'),
+                    ->helperText('Tombol "Pelajari Lebih Lanjut" menuju /products/{slug} di website — harus sama dengan halaman produk yang ada.'),
                 MediaUpload::image('image', 'products', 'home')
                     ->label('Gambar kartu')
                     ->helperText('Rekomendasi rasio 4:3.')

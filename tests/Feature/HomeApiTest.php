@@ -98,12 +98,34 @@ class HomeApiTest extends TestCase
             ->assertJsonCount(3, 'hero')
             ->assertJsonCount(5, 'products')
             ->assertJsonCount(27, 'news.articles')
-            ->assertJsonPath('products.0.slug', 'platform-integrasi-magic-xpi')
+            ->assertJsonPath('products.0.slug', 'magic-xpi')
             ->assertJsonPath('news.articles.0.iso', '2026-08-12');
     }
 
     public function test_about_endpoint_is_untouched(): void
     {
         $this->getJson('/api/about')->assertOk();
+    }
+
+    public function test_product_slugs_match_the_frontend_product_pages(): void
+    {
+        // Halaman produk iglowebsitealt2: /products/{slug} (t.productPages di lib/content.js).
+        $this->getJson('/api/home/en')->assertJsonPath('products.*.slug', [
+            'it-professional-service', 'magic-xpi', 'robotic-process-automation',
+            'magic-xpa', 'leasing-finance', 'data-governance',
+        ]);
+    }
+
+    public function test_old_seeded_slugs_are_migrated_but_editor_slugs_are_kept(): void
+    {
+        HomeProduct::query()->where('slug', 'it-professional-service')->update(['slug' => 'layanan-it-profesional']);
+        HomeProduct::query()->where('slug', 'magic-xpi')->update(['slug' => 'slug-dari-editor']);
+
+        $migration = require database_path('migrations/2026_11_02_000001_align_home_product_slugs_with_frontend.php');
+        $migration->up();
+
+        $this->assertTrue(HomeProduct::query()->where('slug', 'it-professional-service')->exists());
+        $this->assertFalse(HomeProduct::query()->where('slug', 'layanan-it-profesional')->exists());
+        $this->assertTrue(HomeProduct::query()->where('slug', 'slug-dari-editor')->exists());
     }
 }
