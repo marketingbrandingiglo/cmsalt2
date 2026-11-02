@@ -33,7 +33,9 @@ Detail fitur & struktur: `README.md`.
 - **Vercel + Neon + R2** (aktif): `docs/DEPLOY-VERCEL.md`. `vercel.json` (container,
   region `sin1`), `Dockerfile.vercel`, `docker/Caddyfile.vercel`, `docker/vercel-start.sh`.
   Server langsung listen di `$PORT`; `php artisan cms:bootstrap` jalan di background
-  (migrate → seed sekali dengan penanda cache `cms:initial-seed-done` → `AdminUserSeeder`
+  (migrate → seed sekali dengan penanda cache `cms:initial-seed-done` → `AdminUserSeeder`:
+  buat admin, dan ganti password-nya hanya bila nilai `ADMIN_PASSWORD` berubah (hash bcrypt
+  nilai terakhir di cache `cms:admin-password-applied`; disetujui pemilik 2026-11-02)
   → impor `CMS_ASSETS_SOURCE`), dikunci advisory lock Postgres.
   Livewire temporary upload memakai disk media bila driver-nya s3 (`AppServiceProvider`).
 - **Railway** (lama): `docs/DEPLOY-RAILWAY.md`, `Dockerfile`, `docker/start.sh` → `cms:install`.

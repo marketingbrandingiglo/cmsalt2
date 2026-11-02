@@ -99,6 +99,28 @@ class CmsBootstrapCommandTest extends TestCase
         $this->assertTrue(Hash::check('DiGantiEditor456', User::sole()->password));
     }
 
+    public function test_changing_admin_password_in_the_environment_updates_the_account(): void
+    {
+        $this->artisan('cms:bootstrap')->assertSuccessful();
+
+        config(['cms.admin.password' => 'PasswordBaru789']);
+        $this->artisan('cms:bootstrap')->assertSuccessful();
+
+        $this->assertSame(1, User::count());
+        $this->assertTrue(Hash::check('PasswordBaru789', User::sole()->password));
+        $this->assertFalse(str_contains((string) Cache::get('cms:admin-password-applied'), 'PasswordBaru789'));
+    }
+
+    public function test_an_existing_admin_gets_the_new_environment_password_on_upgrade(): void
+    {
+        // Akun dari deploy lama, sebelum penanda password ada.
+        User::factory()->create(['email' => 'design@indocyber.id', 'password' => 'PasswordLama111']);
+
+        $this->artisan('cms:bootstrap')->assertSuccessful();
+
+        $this->assertTrue(Hash::check('RahasiaKuat123', User::sole()->password));
+    }
+
     public function test_no_admin_and_no_default_password_without_admin_password(): void
     {
         config(['cms.admin.password' => null]);

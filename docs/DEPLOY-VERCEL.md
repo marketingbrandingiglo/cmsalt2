@@ -17,7 +17,8 @@ File terkait (semua di **root repo**, tidak ada folder `backend/`):
 - `docker/Caddyfile.vercel`, `docker/vercel-start.sh` — web server + start-up
 - `php artisan cms:bootstrap` — dijalankan di background setiap container start:
   migrasi, isi konten About awal **sekali saja** (data yang dihapus editor tidak
-  muncul lagi), buat akun admin dari `ADMIN_EMAIL`/`ADMIN_PASSWORD` bila belum ada,
+  muncul lagi), buat akun admin dari `ADMIN_EMAIL`/`ADMIN_PASSWORD` bila belum ada (password ikut
+  diganti bila nilai `ADMIN_PASSWORD` diubah lalu Redeploy),
   dan (opsional) impor media dari `CMS_ASSETS_SOURCE`.
 
 `Dockerfile`, `railway.json`, `docker/start.sh` (Railway) tetap ada dan tidak dipakai Vercel.
@@ -137,7 +138,8 @@ atau baris dari `cms:bootstrap`.
 | `connection to server at "127.0.0.1"` | `DB_URL` tidak terbaca: belum ada, tidak dicentang **Production**, atau ada tanda kutip. Perbaiki lalu **Redeploy** (perubahan variabel baru berlaku setelah redeploy). |
 | `Menunggu database siap (30/30)` | Connection string salah, atau memakai host `-pooler`. |
 | `FUNCTION_INVOCATION_FAILED` | Container gagal start/listen. Lihat Logs build & runtime. |
-| `ADMIN_EMAIL / ADMIN_PASSWORD belum di-set` | Isi kedua variabel lalu Redeploy. Akun yang sudah ada tidak pernah diubah. |
+| `ADMIN_EMAIL / ADMIN_PASSWORD belum di-set` | Isi kedua variabel lalu Redeploy. |
+| Ganti password admin | Ubah nilai `ADMIN_PASSWORD` → Save → Redeploy. Log: `Password admin ... diganti sesuai ADMIN_PASSWORD.` Password baru berlaku ±1 menit setelah Ready. |
 | Upload gambar macet / gagal di admin | CORS bucket R2 belum diatur (langkah 2.5) atau token R2 bukan *Read & Write*. |
 | Gambar upload tidak tampil di website | Public Development URL (r2.dev) belum aktif, atau `R2_PUBLIC_URL` salah. |
 | Login admin langsung keluar lagi | `APP_URL` tidak sama dengan domain yang dibuka, atau `APP_KEY` berubah. |
