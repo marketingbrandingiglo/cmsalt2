@@ -1,6 +1,6 @@
-# IGLO CMS — Halaman Tentang Kami / About Us
+# IGLO CMS — Halaman Beranda & Tentang Kami
 
-CMS untuk mengelola seluruh konten halaman **Tentang Kami** di
+CMS untuk mengelola konten halaman **Beranda** (`/`) dan **Tentang Kami** di
 [iglowebsitealt2.vercel.app/about](https://iglowebsitealt2.vercel.app/about)
 (repo frontend `marketingbrandingiglo/iglowebsitealt2`).
 
@@ -13,7 +13,19 @@ CMS untuk mengelola seluruh konten halaman **Tentang Kami** di
 
 ## Apa saja yang bisa dikelola
 
-Semua ada di grup menu **Tentang Kami** pada panel admin (`/admin`):
+### Grup menu **Beranda** (halaman `/`)
+
+| Menu | Seksi di halaman / | Isi |
+|---|---|---|
+| **Hero Slider** | banner berganti otomatis paling atas | Gambar, judul & deskripsi ID/EN, link tombol "Selengkapnya" |
+| **Intro** | teks di atas animasi rumah igloo | Kicker, judul, label tombol menuju /about |
+| **Produk & Solusi** | carousel produk | Di atas: kicker/judul/deskripsi seksi. Tabel: kartu produk (nama, slug, gambar, deskripsi) |
+| **Berita & Insight** | mosaik 4 berita terbaru | Di atas: kicker/judul seksi. Tabel: berita (kategori, tanggal, gambar, judul, ringkasan) |
+
+API `GET /api/home` — cara memasangnya di frontend ada di bagian *Halaman Beranda* pada
+[docs/INTEGRASI-FRONTEND.md](docs/INTEGRASI-FRONTEND.md).
+
+### Grup menu **Tentang Kami** (halaman `/about`)
 
 | Menu | Seksi di halaman /about | Isi |
 |---|---|---|
@@ -46,7 +58,7 @@ touch database/database.sqlite
 # b) MySQL: buat DB lalu ubah DB_* di .env (DB_CONNECTION=mysql, DB_DATABASE=iglo_cms)
 #    mysql -u root -p -e "CREATE DATABASE iglo_cms CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
 
-php artisan migrate --seed     # tabel + konten About + user admin
+php artisan migrate --seed     # tabel + konten Beranda & About + user admin
 php artisan storage:link       # agar file upload bisa diakses publik
 
 # Impor gambar & video About dari repo frontend ke storage CMS
@@ -62,7 +74,7 @@ Atau sekaligus: `composer setup` (lalu jalankan `cms:import-assets`).
 (bisa diubah lewat `CMS_ADMIN_*` di `.env` sebelum seeding, atau buat user baru dengan
 `php artisan make:filament-user`).
 
-> ⚠️ `php artisan db:seed` / `migrate --seed` **mengosongkan lalu mengisi ulang** tabel About.
+> ⚠️ `php artisan db:seed` / `migrate --seed` **mengosongkan lalu mengisi ulang** tabel Beranda & About.
 > Jangan jalankan di produksi setelah konten mulai diedit.
 
 ## REST API
@@ -71,6 +83,8 @@ Atau sekaligus: `composer setup` (lalu jalankan `cms:import-assets`).
 |---|---|
 | `GET /api/about` | `{ "id": {...}, "en": {...} }` |
 | `GET /api/about/{id\|en}` | konten satu bahasa |
+| `GET /api/home` | konten Beranda `{ "id": {...}, "en": {...} }` |
+| `GET /api/home/{id\|en}` | konten Beranda satu bahasa |
 
 Contoh potongan respons `/api/about/en`:
 
@@ -118,22 +132,27 @@ app/
 ├── Console/Commands/BootstrapCms.php        # php artisan cms:bootstrap (Vercel: docker/vercel-start.sh)
 ├── Filament/
 │   ├── Concerns/EditsAboutSection.php       # form judul seksi di atas tabel (Nilai i5, Maskot, …)
-│   ├── Pages/                               # Konten Halaman (Hero), Siapa Kami, Visi & Misi, Video
-│   ├── Resources/                           # Statistik, Nilai i5, Maskot, Milestone, Mitra, Klien
+│   ├── Concerns/EditsHomeSection.php        # idem untuk Beranda (Produk & Solusi, Berita)
+│   ├── Pages/                               # Konten Halaman (Hero), Siapa Kami, Visi & Misi, Video, Intro Beranda
+│   ├── Resources/                           # Statistik, Nilai i5, Maskot, Milestone, Mitra, Klien,
+│   │                                        # Hero Slider, Produk & Solusi, Berita & Insight
 │   ├── Support/Bilingual.php                # field ID | EN berdampingan
 │   ├── Support/MediaUpload.php              # konfigurasi upload gambar/video
-│   └── Widgets/AboutOverview.php            # ringkasan di dasbor
-├── Http/Controllers/Api/AboutController.php # GET /api/about
+│   └── Widgets/                             # ringkasan Beranda & About di dasbor
+├── Http/Controllers/Api/                    # GET /api/about, GET /api/home
 ├── Models/                                  # AboutPage, AboutHighlight, CompanyValue, Mascot,
-│                                            # MilestonePeriod, MilestoneLogo, Partner, ClientCategory, Client
+│                                            # MilestonePeriod, MilestoneLogo, Partner, ClientCategory, Client,
+│                                            # HomePage, HomeSlide, HomeProduct, NewsArticle
 └── Support/
     ├── AboutContent.php                     # menyusun payload API (bentuk = lib/content.js)
+    ├── HomeContent.php                      # idem untuk Beranda
     └── Media.php                            # path → URL (storage CMS / fallback frontend)
 config/cms.php                               # locale, disk media, frontend URL, cache
 database/
 ├── migrations/2026_10_01_000001_create_about_tables.php
-└── seeders/AboutSeeder.php + data/about.json  # konten awal dari lib/content.js
-docs/                                        # panduan integrasi Next.js + hook useAboutContent
+├── migrations/2026_10_23_000001_create_home_tables.php
+└── seeders/AboutSeeder.php, HomeSeeder.php + data/*.json  # konten awal dari lib/content.js
+docs/                                        # panduan integrasi Next.js + hook useAboutContent / useHomeContent
 tests/Feature/                               # test API & panel admin
 ```
 
@@ -148,6 +167,10 @@ tests/Feature/                               # test API & panel admin
 | `milestone_periods` → `milestone_logos` | `period` → `name`, `logo` |
 | `partners` | `name`, `logo`, `url` |
 | `client_categories` → `clients` | `name` (JSON id/en) → `name`, `logo` |
+| `home_pages` | `content` (JSON `{id:{intro, productsSection, news}, en:{…}}`) |
+| `home_slides` | `image`, `title`/`description` (JSON id/en), `cta_url`, `sort_order`, `is_active` |
+| `home_products` | `slug`, `name`, `short`/`long`/`pitch` (JSON id/en), `image`, `sort_order`, `is_active` |
+| `news_articles` | `tag`, `published_at`, `title`/`excerpt` (JSON id/en), `image`, `is_active` |
 
 ## Test
 
@@ -166,7 +189,8 @@ vendor/bin/pint      # code style
 klik di dashboard; repo sudah berisi `Dockerfile`, `railway.json`, dan `docker/start.sh`.
 
 Saat container start, `docker/start.sh` menjalankan `php artisan cms:install` (idempoten):
-migrasi, isi konten awal **hanya bila database kosong**, buat admin pertama, `storage:link`,
+migrasi, isi konten awal About & Beranda **hanya bila tabelnya masih kosong** (database yang
+sudah berisi About otomatis mendapat konten Beranda awal), buat admin pertama, `storage:link`,
 dan impor media dari `CMS_ASSETS_SOURCE` (folder atau URL situs frontend). `APP_KEY` dibuat
 sekali dan disimpan di volume bila tidak di-set.
 

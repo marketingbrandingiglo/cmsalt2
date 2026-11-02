@@ -1,0 +1,558 @@
+{
+  "page": {
+    "content": {
+      "id": {
+        "intro": {
+          "kicker": "PERUSAHAAN TEKNOLOGI PROFESIONAL TERDEPAN",
+          "title": "Kami Menyediakan Solusi Terdepan untuk Kebutuhan Anda",
+          "cta": "Perjalanan Kami"
+        },
+        "productsSection": {
+          "kicker": "PRODUK & SOLUSI",
+          "title": "Layanan Unggulan Kami",
+          "desc": "Rangkaian solusi teknologi menyeluruh untuk mempercepat transformasi digital bisnis Anda."
+        },
+        "news": {
+          "kicker": "BERITA & INSIGHT",
+          "title": "Berita & Wawasan Terkini"
+        }
+      },
+      "en": {
+        "intro": {
+          "kicker": "A LEADING PROFESSIONAL TECH COMPANY",
+          "title": "We Provide A Cutting Edge Solution For What You Need",
+          "cta": "Our Journey"
+        },
+        "productsSection": {
+          "kicker": "PRODUCT & SOLUTIONS",
+          "title": "Our Featured Services",
+          "desc": "A complete suite of technology solutions to accelerate your business's digital transformation."
+        },
+        "news": {
+          "kicker": "NEWS & INSIGHTS",
+          "title": "Latest News & Insights"
+        }
+      }
+    }
+  },
+  "slides": [
+    {
+      "image": "img/Banner/banner_1.webp",
+      "title": {
+        "id": "Mengapa Strategi Rekrutmen Tradisional Tidak Lagi Cukup untuk Proyek IT Modern",
+        "en": "Why Traditional Hiring Strategies Are No Longer Enough for Modern IT Projects."
+      },
+      "description": {
+        "id": "Siklus rekrutmen yang panjang, onboarding yang rumit, dan tuntutan keahlian AI membuat strategi rekrutmen tradisional semakin sulit mengikuti kecepatan bisnis.",
+        "en": "Long hiring cycles, complex onboarding, and the demand for AI skills are making traditional recruitment strategies harder to keep pace with business speed."
+      },
+      "cta_url": "/news"
+    },
+    {
+      "image": "img/Banner/banner_2.webp",
+      "title": {
+        "id": "Dari Otomasi Workflow Menuju Digital Workforce: Mengenal Creatio 10x",
+        "en": "From Workflow Automation to Digital Workforce: Inside Creatio 10x."
+      },
+      "description": {
+        "id": "Ketahui bagaimana Creatio 10x mengubah otomasi workflow konvensional menjadi digital workforce bagi perusahaan modern.",
+        "en": "Discover how Creatio 10x transforms traditional workflow automation into a digital workforce for modern enterprises."
+      },
+      "cta_url": "/news"
+    },
+    {
+      "image": "img/Banner/banner_3.jpg",
+      "title": {
+        "id": "Cloud ERP vs On-Premise ERP: Mana yang Tepat untuk Implementasi SAP Pertama Anda?",
+        "en": "Cloud ERP vs On-Premise ERP: Which Is Right for Your First SAP Implementation?"
+      },
+      "description": {
+        "id": "Bingung memilih Cloud ERP atau On-Premise untuk implementasi SAP pertama? Bandingkan biaya, kecepatan, dan risikonya sebelum memutuskan.",
+        "en": "Choosing between Cloud ERP and On-Premise for your first SAP implementation? Compare cost, speed, and risk before you decide."
+      },
+      "cta_url": "/news"
+    },
+    {
+      "image": "img/Banner/banner_4.webp",
+      "title": {
+        "id": "Mengapa Perusahaan Kini Mencari Kemampuan AI Engineering, Bukan Sekadar Programming",
+        "en": "Why Companies Are Now Looking for AI Engineering Skills, Not Just Programming Skills."
+      },
+      "description": {
+        "id": "Mengapa perusahaan kini lebih mencari keahlian AI Engineering dibanding sekadar kemampuan programming? Simak tren, skill yang dibutuhkan, dan strategi membangun kapabilitas AI enterprise.",
+        "en": "Why are companies now looking for AI Engineering Skills instead of just programming ability? Discover the trends, in-demand skills, and strategies for building enterprise AI capability."
+      },
+      "cta_url": "/news"
+    }
+  ],
+  "products": [
+    {
+      "slug": "layanan-it-profesional",
+      "name": "IT Professional Service",
+      "image": "img/ProducSolHome/img_producsol_1.webp",
+      "short": {
+        "id": "Solusi outsourcing kami membantu Anda menangani beban kerja berlebih, meningkatkan produktivitas, dan menghadirkan talenta TI berkualitas.",
+        "en": "Our outsourcing solutions help you handle excess workloads, improve productivity, and deliver quality IT talent."
+      },
+      "long": {
+        "id": "Solusi outsourcing kami membantu Anda menangani beban kerja berlebih, meningkatkan produktivitas tim, dan menghadirkan talenta TI berkualitas sesuai kebutuhan proyek Anda — mulai dari developer, analis, hingga tim manajemen proyek.",
+        "en": "Our outsourcing solutions help you handle excess workloads, boost team productivity, and deliver quality IT talent tailored to your project needs — from developers and analysts to project management teams."
+      },
+      "pitch": {
+        "id": "Solusi outsourcing kami membantu Anda menangani kelebihan beban kerja, meningkatkan performa layanan, dan menghadirkan fleksibilitas yang lebih tinggi dalam manajemen tenaga kerja. Dengan pengetahuan mendalam di bidangnya, keahlian teknis, serta perangkat yang teruji, tim kami mampu menyelesaikan tugas maupun proyek yang paling menantang sekalipun.",
+        "en": "Our outsourcing solutions can assist you in handling excess workloads, improve service performance, and offer increased levels of flexibility in workforce management. Having subject-matter and technical knowledge as well as proven tools, our expertise is able to complete even the most demanding tasks or projects."
+      }
+    },
+    {
+      "slug": "platform-integrasi-magic-xpi",
+      "name": "Integration Platform – Magic xpi",
+      "image": "img/ProducSolHome/img_producsol_2.webp",
+      "short": {
+        "id": "Dengan pendekatan tanpa kode dan perawatan minim, Magic xpi mengintegrasikan seluruh sistem bisnis Anda secara mulus.",
+        "en": "With a code-free, low-maintenance approach, Magic xpi integrates all of your business systems seamlessly."
+      },
+      "long": {
+        "id": "Dengan pendekatan code-free dan perawatan yang rendah, Magic xpi mengintegrasikan seluruh sistem bisnis Anda — ERP, CRM, database, hingga layanan cloud — dalam satu platform yang mulus dan andal.",
+        "en": "With a code-free and low-maintenance approach, Magic xpi integrates all of your business systems — ERP, CRM, databases, and cloud services — into one seamless and reliable platform."
+      },
+      "pitch": {
+        "id": "Dengan pendekatan tanpa kode dan perawatan yang minim, Magic xpi mengintegrasikan seluruh sistem bisnis Anda — baik di cloud, on-premise, maupun hybrid — sehingga perusahaan Anda dapat memaksimalkan setiap peluang yang ada.",
+        "en": "With a code-free, low maintenance approach, Magic xpi integrates all of your business systems on the cloud, on-premises or in hybrid deployments so your company can maximize its opportunities."
+      }
+    },
+    {
+      "slug": "robotic-process-automation",
+      "name": "Robotic Process Automation",
+      "image": "img/ProducSolHome/img_producsol_3.webp",
+      "short": {
+        "id": "Temukan peluang otomatisasi bertenaga AI yang bekerja bersama karyawan Anda untuk mengurangi pekerjaan repetitif.",
+        "en": "Discover automation opportunities powered by AI and your employees to reduce repetitive work."
+      },
+      "long": {
+        "id": "Temukan peluang otomatisasi bertenaga AI yang bekerja berdampingan dengan karyawan Anda. RPA mengurangi pekerjaan repetitif, memangkas kesalahan manual, dan membebaskan tim untuk pekerjaan bernilai lebih tinggi.",
+        "en": "Discover automation opportunities powered by AI working alongside your employees. RPA reduces repetitive work, cuts manual errors, and frees your team for higher-value tasks."
+      },
+      "pitch": {
+        "id": "Temukan peluang otomatisasi bertenaga AI yang bekerja berdampingan dengan karyawan Anda. Otomatisasi menghubungkan sistem, perangkat lunak, dan aplikasi agar bekerja secara mulus bersama-sama. Robot digital mengambil alih pekerjaan repetitif, membebaskan tim Anda untuk fokus pada pekerjaan yang lebih bernilai.",
+        "en": "Discover automation opportunities powered by AI and your employees. Automation connects systems, software, and applications so they work smoothly together. Personal robots take on repetitive tasks, freeing people for higher-value work."
+      }
+    },
+    {
+      "slug": "magic-xpa-low-code-platform",
+      "name": "Low-Code Platform – Magic xpa",
+      "image": "img/ProducSolHome/img_producsol_4.webp",
+      "short": {
+        "id": "Magic xpa memungkinkan pembuatan aplikasi bisnis lintas platform secara cepat tanpa coding yang berat.",
+        "en": "Magic xpa enables rapid creation of cross-platform business applications without heavy coding."
+      },
+      "long": {
+        "id": "Magic xpa memungkinkan pembuatan aplikasi bisnis lintas platform secara cepat. Rancang sekali, jalankan di mana saja — web, mobile, dan desktop — tanpa ketergantungan pada coding yang berat.",
+        "en": "Magic xpa enables the rapid creation of cross-platform business applications. Design once, run anywhere — web, mobile, and desktop — without depending on heavy coding."
+      },
+      "pitch": {
+        "id": "Solusi Magic xpa memungkinkan pembuatan aplikasi bisnis lintas platform secara cepat — untuk desktop, web, maupun mobile — sehingga Anda dapat memanfaatkan peluang bisnis baru dengan cepat dan sesuai kebutuhan.",
+        "en": "Magic xpa solution enables rapid creation of cross-platform business applications for desktop, web and mobile, so you can take advantage of new business opportunities quickly and on-demand."
+      }
+    },
+    {
+      "slug": "pembiayaan-keuangan",
+      "name": "Leasing & Finance",
+      "image": "img/ProducSolHome/img_producsol_5.webp",
+      "short": {
+        "id": "Sederhanakan proses Anda, dari pengajuan hingga persetujuan, dengan sistem terintegrasi yang mulus.",
+        "en": "Streamline your processes, from application to approval, with a seamlessly integrated system."
+      },
+      "long": {
+        "id": "Sederhanakan seluruh proses pembiayaan Anda, dari pengajuan hingga persetujuan, dengan sistem terintegrasi yang mulus, transparan, dan patuh terhadap regulasi.",
+        "en": "Streamline your entire financing process, from application to approval, with a seamlessly integrated, transparent, and regulation-compliant system."
+      },
+      "pitch": {
+        "id": "Sederhanakan proses Anda, mulai dari pengajuan hingga persetujuan, dengan platform terintegrasi yang meningkatkan efisiensi dan akurasi. Solusi kami menghadirkan fitur unggulan seperti wawasan finansial real-time, dokumentasi otomatis, dan manajemen kepatuhan, sehingga bisnis Anda dapat mengambil keputusan secara cepat dan tepat.",
+        "en": "Streamline your processes, from application to approval, with a seamlessly integrated platform that enhances efficiency and accuracy. Our solution offers robust features, including real-time financial insights, automated documentation, and compliance management, empowering your business to make informed decisions swiftly."
+      }
+    },
+    {
+      "slug": "data-governance",
+      "name": "Data Governance",
+      "image": "img/ProducSolHome/img_producsol_6.webp",
+      "short": {
+        "id": "Hadirkan nilai terukur bagi seluruh organisasi dengan memberdayakan tim melalui tata kelola data yang tepat.",
+        "en": "Deliver measurable value for the entire organization by empowering your teams with proper data governance."
+      },
+      "long": {
+        "id": "Hadirkan nilai terukur bagi seluruh organisasi dengan memberdayakan tim melalui tata kelola data yang tepat — kualitas data, keamanan, kepatuhan, dan aksesibilitas dalam satu kerangka kerja.",
+        "en": "Deliver measurable value across the entire organization by empowering your teams with proper data governance — data quality, security, compliance, and accessibility in one framework."
+      },
+      "pitch": {
+        "id": "Hadirkan nilai yang terukur bagi seluruh organisasi dengan memberdayakan tim Anda melalui data yang tepercaya.",
+        "en": "Deliver measurable value for the entire organization by empowering your teams with trustworthy data."
+      }
+    }
+  ],
+  "news": [
+    {
+      "tag": "insight",
+      "published_at": "2026-08-18",
+      "image": "img/News/img_news_1.webp",
+      "title": {
+        "id": "Dokumen Perusahaan Dipalsukan? Ini Kerugian yang Sering Terlewat",
+        "en": "Company Documents Falsified? Here Are the Losses Often Overlooked"
+      },
+      "excerpt": {
+        "id": "Kecurangan tidak selalu dimulai dari transaksi mencurigakan atau serangan sistem. Dalam proses bisnis yang makin digital, risiko juga bisa muncul dari dokumen yang dipalsukan, dimanipulasi, atau ditandatangani oleh pihak yang identitas dan kewenangannya sulit diverifikasi.",
+        "en": "Fraud does not always start with a suspicious transaction or a system attack. In an increasingly digital business process, risk can also arise from documents that are falsified, manipulated, or signed by parties whose identity and authority are difficult to verify."
+      }
+    },
+    {
+      "tag": "insight",
+      "published_at": "2026-08-12",
+      "image": "img/News/img_news_2.webp",
+      "title": {
+        "id": "Mengapa Strategi Rekrutmen Tradisional Tidak Lagi Cukup untuk Proyek IT Modern",
+        "en": "Why Traditional Hiring Strategies Are No Longer Enough for Modern IT Projects"
+      },
+      "excerpt": {
+        "id": "Transformasi digital bukan lagi agenda jangka panjang. Industri dituntut menghadirkan layanan digital lebih cepat, mengintegrasikan AI ke proses bisnis, dan merespons perubahan pasar tanpa mengorbankan kualitas atau keamanan. Teknologi sering dianggap sebagai enabler utama, namun banyak inisiatif digital justru terhambat bukan karena keterbatasan teknologi, melainkan kapasitas tim yang terbatas untuk membangun, mengimplementasikan, dan mengelolanya.",
+        "en": "Digital transformation is no longer a long-term agenda. Industries are expected to deliver digital services faster, integrate AI into business processes, and respond to market shifts without compromising quality or security. Technology is often seen as the main enabler. In practice, however, many digital initiatives stall not because of technology limitations, but because of limited team capacity to build, implement, and manage them."
+      }
+    },
+    {
+      "tag": "product",
+      "published_at": "2026-08-07",
+      "image": "img/News/img_news_3.webp",
+      "title": {
+        "id": "Dari Otomasi Workflow Menuju Digital Workforce: Mengenal Creatio 10x",
+        "en": "From Workflow Automation to Digital Workforce: Inside Creatio 10x"
+      },
+      "excerpt": {
+        "id": "Selama bertahun-tahun, otomasi workflow membantu organisasi menyederhanakan tugas repetitif, mengurangi pekerjaan manual, dan meningkatkan efisiensi operasional. Dari proses persetujuan dan lead routing hingga manajemen tiket layanan, otomasi telah menjadi bagian standar transformasi digital enterprise. Kini, prioritas enterprise kembali berevolusi.",
+        "en": "For years, workflow automation has helped organizations streamline repetitive tasks, reduce manual work, and improve operational efficiency. From approval processes and lead routing to service ticket management, automation has become a standard part of enterprise digital transformation. Today, enterprise priorities are evolving once again."
+      }
+    },
+    {
+      "tag": "product",
+      "published_at": "2026-08-04",
+      "image": "img/News/img_news_4.jpg",
+      "title": {
+        "id": "Cloud ERP vs On-Premise ERP: Mana yang Tepat untuk Implementasi SAP Pertama Anda?",
+        "en": "Cloud ERP vs On-Premise ERP: Which Is Right for Your First SAP Implementation?"
+      },
+      "excerpt": {
+        "id": "Memilih SAP bukan sekadar menentukan platform ERP. Keputusan di awal implementasi akan memengaruhi biaya proyek, waktu go-live, beban kerja tim IT, hingga kemampuan Anda untuk scale seiring pertumbuhan bisnis. Salah satu keputusan pertama yang dihadapi setiap organisasi adalah memilih antara Cloud ERP atau On-Premise ERP — masing-masing punya kelebihan, namun pilihan tepat bergantung pada kebutuhan bisnis, prioritas operasional, dan strategi jangka panjang Anda.",
+        "en": "Choosing SAP is about more than selecting an ERP platform. The decisions you make at the beginning of your implementation will affect project costs, time to go-live, IT workload, and your ability to scale as your business grows. One of the first decisions every organization faces is whether to implement Cloud ERP or On-Premise ERP. Both approaches offer distinct advantages, but the right choice depends on your business needs, operational priorities, and long-term strategy."
+      }
+    },
+    {
+      "tag": "insight",
+      "published_at": "2026-07-28",
+      "image": "img/News/img_news_5.webp",
+      "title": {
+        "id": "Mengapa Perusahaan Kini Mencari Kemampuan AI Engineering, Bukan Sekadar Programming",
+        "en": "Why Companies Are Now Looking for AI Engineering Skills, Not Just Programming Skills"
+      },
+      "excerpt": {
+        "id": "Kecerdasan buatan (AI) telah berkembang dari teknologi eksperimental menjadi bagian inti strategi bisnis. Perusahaan kini memanfaatkan AI untuk meningkatkan produktivitas, mempercepat pengembangan aplikasi, mengotomasi workflow, dan mendukung pengambilan keputusan.",
+        "en": "Artificial Intelligence has evolved from an experimental technology into a core part of business strategy. Companies now use AI to boost productivity, accelerate application development, automate workflows, and support decision making."
+      }
+    },
+    {
+      "tag": "product",
+      "published_at": "2026-07-20",
+      "image": "img/News/img_news_6.webp",
+      "title": {
+        "id": "Masih Pakai Tanda Tangan Hasil Scan? Ini Risiko yang Sering Diabaikan Bisnis",
+        "en": "Still Using a Scanned Signature? Here's the Risk Most Businesses Overlook"
+      },
+      "excerpt": {
+        "id": "Coba tanyakan ke tim legal atau finance Anda: pada kontrak terakhir yang ditandatangani, apakah tanda tangannya benar-benar digital, atau sekadar gambar hasil scan yang ditempel ke PDF? Jika jawabannya yang kedua, Anda tidak sendiri — ini masih jadi praktik umum di banyak perusahaan Indonesia, terutama yang masih bertransisi dari proses manual ke digital.",
+        "en": "Ask your legal or finance team: on the last contract they signed, was the signature actually digital, or just a scanned image pasted into the PDF? If the answer is the latter, you are not alone. This is still common practice across many Indonesian companies, especially those still transitioning from manual to digital processes."
+      }
+    },
+    {
+      "tag": "announcement",
+      "published_at": "2026-07-25",
+      "image": null,
+      "title": {
+        "id": "Indocyber Raih Sertifikasi ISO/IEC 27001:2022",
+        "en": "Indocyber Achieves ISO/IEC 27001:2022 Certification"
+      },
+      "excerpt": {
+        "id": "Pencapaian ini menegaskan komitmen kami terhadap standar keamanan informasi kelas dunia untuk melindungi data setiap klien.",
+        "en": "This milestone reinforces our commitment to world-class information security standards to protect every client's data."
+      }
+    },
+    {
+      "tag": "product",
+      "published_at": "2026-07-22",
+      "image": null,
+      "title": {
+        "id": "Peluncuran Modul AI Analytics Terbaru di Platform IGLO",
+        "en": "Launching the New AI Analytics Module on the IGLO Platform"
+      },
+      "excerpt": {
+        "id": "Modul baru ini menghadirkan analitik prediktif dan visualisasi data real-time untuk pengambilan keputusan yang lebih cepat.",
+        "en": "The new module brings predictive analytics and real-time data visualization for faster decision-making."
+      }
+    },
+    {
+      "tag": "event",
+      "published_at": "2026-07-18",
+      "image": null,
+      "title": {
+        "id": "IGLO Hadir di Indonesia Fintech Summit 2026",
+        "en": "IGLO at the Indonesia Fintech Summit 2026"
+      },
+      "excerpt": {
+        "id": "Temui tim kami dan saksikan demo langsung solusi transformasi digital untuk industri keuangan.",
+        "en": "Meet our team and see live demos of our digital transformation solutions for the financial industry."
+      }
+    },
+    {
+      "tag": "insight",
+      "published_at": "2026-07-10",
+      "image": null,
+      "title": {
+        "id": "Cara Mempercepat Sistem Bisnis Anda",
+        "en": "How to Accelerate Your Business System"
+      },
+      "excerpt": {
+        "id": "Banyak perusahaan masih menghadapi proses bisnis yang lambat akibat sistem yang sulit dikembangkan dan integrasi yang rumit.",
+        "en": "Many companies still face slow business processes caused by systems that are difficult to develop and complex integrations."
+      }
+    },
+    {
+      "tag": "insight",
+      "published_at": "2026-07-05",
+      "image": null,
+      "title": {
+        "id": "Kekurangan Talenta AI Jadi Tantangan Baru Industri Keuangan",
+        "en": "AI Skills Shortage Becomes a New Challenge for the Financial Industry"
+      },
+      "excerpt": {
+        "id": "Kelangkaan talenta AI kini memperlambat transformasi digital di sektor keuangan. Pelajari penyebab dan solusinya.",
+        "en": "AI talent shortage is now slowing digital transformation in the financial sector. Learn the causes and solutions."
+      }
+    },
+    {
+      "tag": "product",
+      "published_at": "2026-06-28",
+      "image": null,
+      "title": {
+        "id": "ERP untuk Bisnis Midmarket: Mengapa Menunda Investasi Menghambat Pertumbuhan",
+        "en": "ERP for Midmarket Businesses: Why Delaying Investment Holds Back Growth"
+      },
+      "excerpt": {
+        "id": "Menunda investasi ERP karena dianggap mahal justru menghambat pertumbuhan. Ketahui mengapa SAP kini relevan bagi midmarket.",
+        "en": "Delaying ERP investment because it seems expensive actually holds back growth. Learn why SAP is now relevant for midmarket."
+      }
+    },
+    {
+      "tag": "insight",
+      "published_at": "2026-06-20",
+      "image": null,
+      "title": {
+        "id": "7 Kriteria Memilih Vendor IT Professional Services untuk Lembaga Keuangan",
+        "en": "7 Criteria for Choosing an IT Professional Services Vendor"
+      },
+      "excerpt": {
+        "id": "Pelajari 7 kriteria memilih vendor IT Professional Services, mulai dari pengalaman industri hingga skalabilitas tim.",
+        "en": "Learn 7 criteria for choosing an IT Professional Services vendor, from industry experience to team scalability."
+      }
+    },
+    {
+      "tag": "product",
+      "published_at": "2026-06-12",
+      "image": null,
+      "title": {
+        "id": "Dari Kompleksitas ke Kelincahan: Bagaimana Creatio Memberdayakan Organisasi Modern",
+        "en": "From Complexity to Agility: How Creatio Powers Modern Organizations"
+      },
+      "excerpt": {
+        "id": "Pelajari bagaimana platform AI CRM membantu bisnis mengurangi kompleksitas operasional dan menjadi lebih lincah.",
+        "en": "Learn how an AI CRM platform helps businesses reduce operational complexity and become more agile."
+      }
+    },
+    {
+      "tag": "insight",
+      "published_at": "2026-06-03",
+      "image": null,
+      "title": {
+        "id": "Apakah Tanda Tangan Digital Perusahaan Anda Sah Secara Hukum?",
+        "en": "Is Your Company's Digital Signature Legally Binding?"
+      },
+      "excerpt": {
+        "id": "Ketahui persyaratan OJK, Bank Indonesia, dan Mahkamah Agung untuk tanda tangan elektronik tersertifikasi.",
+        "en": "Learn what OJK, Bank Indonesia, and Supreme Court regulations require for certified electronic signatures."
+      }
+    },
+    {
+      "tag": "announcement",
+      "published_at": "2026-05-28",
+      "image": null,
+      "title": {
+        "id": "Indocyber Buka Kantor Cabang Baru di Surabaya",
+        "en": "Indocyber Opens New Branch Office in Surabaya"
+      },
+      "excerpt": {
+        "id": "Ekspansi ini memperkuat kehadiran kami di Jawa Timur dan mendekatkan layanan kepada mitra bisnis di kawasan tersebut.",
+        "en": "This expansion strengthens our presence in East Java and brings our services closer to partners in the region."
+      }
+    },
+    {
+      "tag": "event",
+      "published_at": "2026-05-20",
+      "image": null,
+      "title": {
+        "id": "Webinar: Strategi Keamanan Siber untuk Perbankan Digital",
+        "en": "Webinar: Cybersecurity Strategies for Digital Banking"
+      },
+      "excerpt": {
+        "id": "Bergabunglah dengan para pakar kami membahas praktik terbaik mengamankan layanan perbankan digital dari ancaman terkini.",
+        "en": "Join our experts to discuss best practices for securing digital banking services against the latest threats."
+      }
+    },
+    {
+      "tag": "product",
+      "published_at": "2026-05-14",
+      "image": null,
+      "title": {
+        "id": "IGLO Rilis Fitur Single Sign-On Terintegrasi",
+        "en": "IGLO Releases Integrated Single Sign-On"
+      },
+      "excerpt": {
+        "id": "Kelola akses seluruh aplikasi perusahaan melalui satu identitas yang aman, mudah, dan sesuai standar kepatuhan.",
+        "en": "Manage access to all enterprise apps through one secure identity that's easy to use and compliance-ready."
+      }
+    },
+    {
+      "tag": "insight",
+      "published_at": "2026-05-06",
+      "image": null,
+      "title": {
+        "id": "Tren Transformasi Digital Sektor Keuangan 2026",
+        "en": "Financial Sector Digital Transformation Trends 2026"
+      },
+      "excerpt": {
+        "id": "Dari AI generatif hingga open banking, inilah tren utama yang membentuk masa depan layanan keuangan tahun ini.",
+        "en": "From generative AI to open banking, these are the key trends shaping the future of financial services this year."
+      }
+    },
+    {
+      "tag": "announcement",
+      "published_at": "2026-04-29",
+      "image": null,
+      "title": {
+        "id": "Kemitraan Strategis Indocyber dengan Penyedia Cloud Global",
+        "en": "Indocyber's Strategic Partnership with a Global Cloud Provider"
+      },
+      "excerpt": {
+        "id": "Kolaborasi ini memungkinkan kami menghadirkan solusi cloud yang lebih skalabel dan andal bagi klien enterprise.",
+        "en": "This collaboration lets us deliver more scalable and reliable cloud solutions for enterprise clients."
+      }
+    },
+    {
+      "tag": "event",
+      "published_at": "2026-04-22",
+      "image": null,
+      "title": {
+        "id": "IGLO Tech Day 2026: Menjelajahi Masa Depan Otomasi",
+        "en": "IGLO Tech Day 2026: Exploring the Future of Automation"
+      },
+      "excerpt": {
+        "id": "Acara tahunan kami kembali menghadirkan sesi teknis, studi kasus, dan networking bersama para praktisi teknologi.",
+        "en": "Our annual event returns with technical sessions, case studies, and networking with technology practitioners."
+      }
+    },
+    {
+      "tag": "insight",
+      "published_at": "2026-04-15",
+      "image": null,
+      "title": {
+        "id": "Mengapa Observability Penting bagi Sistem Kritikal",
+        "en": "Why Observability Matters for Critical Systems"
+      },
+      "excerpt": {
+        "id": "Observability bukan sekadar monitoring—pelajari bagaimana ia membantu tim merespons insiden lebih cepat dan tepat.",
+        "en": "Observability is more than monitoring—learn how it helps teams respond to incidents faster and more accurately."
+      }
+    },
+    {
+      "tag": "product",
+      "published_at": "2026-04-08",
+      "image": null,
+      "title": {
+        "id": "Pembaruan Dashboard Monitoring Real-Time IGLO",
+        "en": "Real-Time Monitoring Dashboard Update on IGLO"
+      },
+      "excerpt": {
+        "id": "Tampilan baru yang lebih intuitif memudahkan tim operasional memantau kesehatan sistem dalam satu layar.",
+        "en": "A more intuitive new interface makes it easier for operations teams to monitor system health on a single screen."
+      }
+    },
+    {
+      "tag": "announcement",
+      "published_at": "2026-03-30",
+      "image": null,
+      "title": {
+        "id": "Indocyber Masuk Daftar Top IT Solution Provider 2026",
+        "en": "Indocyber Named a Top IT Solution Provider 2026"
+      },
+      "excerpt": {
+        "id": "Penghargaan ini menjadi bukti dedikasi tim kami dalam menghadirkan solusi teknologi yang berdampak nyata.",
+        "en": "This recognition reflects our team's dedication to delivering technology solutions with real impact."
+      }
+    },
+    {
+      "tag": "event",
+      "published_at": "2026-03-23",
+      "image": null,
+      "title": {
+        "id": "Meetup Komunitas Developer: Membangun dengan API IGLO",
+        "en": "Developer Community Meetup: Building with the IGLO API"
+      },
+      "excerpt": {
+        "id": "Sesi hands-on bagi para developer untuk mengeksplorasi dokumentasi, SDK, dan praktik terbaik integrasi API kami.",
+        "en": "A hands-on session for developers to explore our documentation, SDKs, and API integration best practices."
+      }
+    },
+    {
+      "tag": "insight",
+      "published_at": "2026-03-16",
+      "image": null,
+      "title": {
+        "id": "Panduan Migrasi Aman ke Arsitektur Microservices",
+        "en": "A Guide to Safely Migrating to Microservices"
+      },
+      "excerpt": {
+        "id": "Migrasi bertahap, pemantauan ketat, dan strategi rollback—langkah kunci agar transisi berjalan tanpa gangguan.",
+        "en": "Incremental migration, tight monitoring, and rollback strategies—the key steps for a smooth transition."
+      }
+    },
+    {
+      "tag": "product",
+      "published_at": "2026-03-09",
+      "image": null,
+      "title": {
+        "id": "Integrasi Baru: Menghubungkan IGLO dengan SAP S/4HANA",
+        "en": "New Integration: Connecting IGLO with SAP S/4HANA"
+      },
+      "excerpt": {
+        "id": "Sinkronkan data operasional dan keuangan secara mulus antara IGLO dan SAP S/4HANA tanpa proses manual.",
+        "en": "Seamlessly sync operational and financial data between IGLO and SAP S/4HANA without manual processes."
+      }
+    },
+    {
+      "tag": "event",
+      "published_at": "2026-03-02",
+      "image": null,
+      "title": {
+        "id": "Workshop Eksklusif: Implementasi AI di Lembaga Keuangan",
+        "en": "Exclusive Workshop: Implementing AI in Financial Institutions"
+      },
+      "excerpt": {
+        "id": "Pelajari langkah praktis mengadopsi AI secara bertanggung jawab dalam operasional lembaga keuangan Anda.",
+        "en": "Learn practical steps to responsibly adopt AI in your financial institution's operations."
+      }
+    }
+  ]
+}

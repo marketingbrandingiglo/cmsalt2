@@ -3,8 +3,11 @@
 namespace Tests\Feature;
 
 use App\Models\AboutPage;
+use App\Models\HomePage;
+use App\Models\HomeSlide;
 use App\Models\Partner;
 use App\Models\User;
+use Database\Seeders\AboutSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Hash;
 use Tests\TestCase;
@@ -30,6 +33,20 @@ class InstallCommandTest extends TestCase
         $this->assertSame(1, AboutPage::count());
         $this->assertSame(11, Partner::count());
         $this->assertSame(1, User::count());
+    }
+
+    public function test_install_adds_home_content_to_an_existing_about_database(): void
+    {
+        config(['cms.admin.password' => 'RahasiaKuat123', 'cms.assets_source' => null]);
+
+        $this->seed(AboutSeeder::class);
+        AboutPage::singleton()->updateContent(['content' => ['id' => ['vision' => 'Visi hasil edit']]]);
+
+        $this->artisan('cms:install')->assertSuccessful();
+
+        $this->assertSame(1, HomePage::count());
+        $this->assertSame(4, HomeSlide::count());
+        $this->assertSame('Visi hasil edit', AboutPage::singleton()->content['id']['vision']);
     }
 
     public function test_production_without_password_never_uses_the_default(): void

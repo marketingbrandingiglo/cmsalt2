@@ -99,3 +99,58 @@ bila `FRONTEND_URL` kosong) sehingga tetap memakai aset di `public/` Next.js.
 > Catatan: posisi 5 ikon nilai i5 di sekitar logo (`VALUE_LAYOUT`) dipetakan dari
 > **judul** nilai (Integrity, Innovative, Integrated, Impressive, Involved). Judul bisa
 > diganti di CMS, tetapi nilai dengan judul baru perlu ditambahkan juga ke `VALUE_LAYOUT`.
+
+---
+
+# Halaman Beranda / Home
+
+> **Status: API siap, BELUM dipasang di frontend** (`indocyber-website-v2`). Langkah di bawah
+> mengikuti pola yang sudah dipakai halaman About (proxy `/api/cms/...` + hook dengan fallback).
+
+`GET /api/home` mengembalikan kunci-kunci `content[lang]` di `lib/content.js` yang dipakai
+`app/page.js` beserta komponennya — **dengan bentuk yang sama**:
+
+| Endpoint | Hasil |
+|---|---|
+| `GET /api/home` | `{ "id": { ...home }, "en": { ...home } }` |
+| `GET /api/home/{id\|en}` | konten satu bahasa |
+
+| Kunci | Dipakai oleh | Menu CMS (grup **Beranda**) |
+|---|---|---|
+| `hero[]` → `{ image, title, desc, ctaHref }` | `HeroSlider.js` | Hero Slider |
+| `intro` → `{ kicker, title, cta }` | `IntroScene.js` | Intro |
+| `productsSection` → `{ kicker, title, desc }` | `IntroScene.js`, `app/page.js` (mobile) | Produk & Solusi (form di atas tabel) |
+| `products[]` → `{ slug, name, short, long, pitch, image }` | `ProductCarousel.js`, `ProductGlassCarousel.js` | Produk & Solusi (tabel) |
+| `news.hero` → `{ kicker, title }` | `IntroScene.js`, `app/page.js` (mobile) | Berita & Insight (form di atas tabel) |
+| `news.filters` → label kategori | `NewsMosaic.js` (badge kartu) | — (tetap: Pengumuman/Produk/Acara/Wawasan) |
+| `news.articles[]` → `{ tag, date, iso, title, excerpt, image }` | `NewsMosaic.js` (4 teratas) | Berita & Insight (tabel) |
+
+Berita diurutkan dari `published_at` terbaru; `date` sudah diformat per bahasa
+(`18 Agu 2026` / `Aug 18, 2026`). Item yang dimatikan (toggle **Tampil**) tidak ikut di API.
+
+Yang **tidak** dikelola CMS (sengaja): 7 frame animasi rumah igloo di `IntroScene.js`
+(terikat ke timing scroll), dan label tombol umum `t.common.*`.
+
+## Langkah integrasi
+
+1. Proxy di website — salin `app/api/cms/about/route.js` menjadi `app/api/cms/home/route.js`
+   dan ganti `${CMS_URL}/api/about` → `${CMS_URL}/api/home`.
+
+2. Salin [`docs/nextjs/useHomeContent.js`](nextjs/useHomeContent.js) ke
+   `components/useHomeContent.js`.
+
+3. Di `app/page.js`, `HeroSlider.js`, `IntroScene.js`, `ProductCarousel.js`,
+   `ProductGlassCarousel.js` dan `NewsMosaic.js`:
+   ```diff
+   +import { useHomeContent } from "@/components/useHomeContent";
+    ...
+   -  const { t } = useLanguage();
+   +  const t = useHomeContent();
+   ```
+   Hook mengembalikan objek `t` lengkap — kunci di luar Beranda tetap dari `lib/content.js`,
+   dan bila CMS tidak bisa dihubungi seluruhnya jatuh ke konten statis.
+
+4. Gambar dari CMS berupa URL absolut — komponen sudah memakai
+   `unoptimized={!src.startsWith("/")}`, jadi tidak perlu `images.remotePatterns`.
+
+5. `npm run build`, lalu deploy seperti biasa.

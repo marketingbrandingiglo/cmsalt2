@@ -6,14 +6,18 @@ use App\Support\Media;
 use Filament\Forms\Components\FileUpload;
 use Illuminate\Support\Arr;
 
+/**
+ * Upload media ke disk CMS, dikelompokkan per halaman: {page}/{directory},
+ * mis. about/partners atau home/slides.
+ */
 class MediaUpload
 {
-    public static function image(string $name, string $directory): FileUpload
+    public static function image(string $name, string $directory, string $page = 'about'): FileUpload
     {
         return self::keepFrontendAssets(FileUpload::make($name))
             ->image()
             ->disk(config('cms.media_disk'))
-            ->directory("about/{$directory}")
+            ->directory("{$page}/{$directory}")
             ->visibility(Media::visibility())
             ->maxSize(5120)
             ->imagePreviewHeight('120')
@@ -21,12 +25,12 @@ class MediaUpload
             ->openable();
     }
 
-    public static function video(string $name, string $directory): FileUpload
+    public static function video(string $name, string $directory, string $page = 'about'): FileUpload
     {
         return self::keepFrontendAssets(FileUpload::make($name))
             ->acceptedFileTypes(['video/mp4', 'video/webm'])
             ->disk(config('cms.media_disk'))
-            ->directory("about/{$directory}")
+            ->directory("{$page}/{$directory}")
             ->visibility(Media::visibility())
             ->maxSize(102400)
             ->downloadable()

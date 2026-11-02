@@ -4,8 +4,10 @@ namespace App\Console\Commands;
 
 use App\Console\Concerns\WaitsForDatabase;
 use App\Models\AboutPage;
+use App\Models\HomePage;
 use App\Models\User;
 use Database\Seeders\AboutSeeder;
+use Database\Seeders\HomeSeeder;
 use Illuminate\Console\Attributes\Description;
 use Illuminate\Console\Attributes\Signature;
 use Illuminate\Console\Command;
@@ -16,13 +18,13 @@ use Illuminate\Support\Str;
  * Langkah instalasi idempoten — aman dijalankan setiap kali server start
  * (dipakai docker/start.sh):
  *  1. migrasi database,
- *  2. isi konten About awal HANYA bila database masih kosong,
+ *  2. isi konten About & Beranda awal HANYA bila tabelnya masih kosong,
  *  3. buat akun admin pertama bila belum ada user,
  *  4. buat symlink storage, lalu impor media dari CMS_ASSETS_SOURCE
  *     (file yang sudah ada dilewati).
  */
 #[Signature('cms:install')]
-#[Description('Migrasi + isi data awal (sekali) + impor media halaman About')]
+#[Description('Migrasi + isi data awal (sekali) + impor media halaman About & Beranda')]
 class InstallCms extends Command
 {
     use WaitsForDatabase;
@@ -38,6 +40,13 @@ class InstallCms extends Command
         if (! AboutPage::query()->exists()) {
             $this->components->info('Database kosong — mengisi konten About awal.');
             $this->call('db:seed', ['--class' => AboutSeeder::class, '--force' => true]);
+        }
+
+        // Terpisah dari About agar database produksi yang sudah berisi
+        // konten About tetap mendapat konten Beranda awal saat upgrade.
+        if (! HomePage::query()->exists()) {
+            $this->components->info('Konten Beranda kosong — mengisi konten Beranda awal.');
+            $this->call('db:seed', ['--class' => HomeSeeder::class, '--force' => true]);
         }
 
         if (Schema::hasTable('users') && ! User::query()->exists()) {

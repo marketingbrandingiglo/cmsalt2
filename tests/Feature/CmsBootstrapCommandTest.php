@@ -4,6 +4,8 @@ namespace Tests\Feature;
 
 use App\Console\Commands\BootstrapCms;
 use App\Models\AboutPage;
+use App\Models\HomePage;
+use App\Models\HomeSlide;
 use App\Models\Partner;
 use App\Models\User;
 use App\Providers\AppServiceProvider;
@@ -67,6 +69,23 @@ class CmsBootstrapCommandTest extends TestCase
 
         $this->assertSame(11, Partner::count());
         $this->assertTrue(Cache::get(BootstrapCms::SEED_MARKER));
+    }
+
+    public function test_home_content_is_added_once_to_a_database_seeded_before_home_existed(): void
+    {
+        $this->seed(AboutSeeder::class);
+        Cache::forever(BootstrapCms::SEED_MARKER, true);
+
+        $this->artisan('cms:bootstrap')->assertSuccessful();
+
+        $this->assertSame(1, HomePage::count());
+        $this->assertSame(4, HomeSlide::count());
+        $this->assertTrue(Cache::get(BootstrapCms::HOME_SEED_MARKER));
+
+        HomeSlide::query()->delete();
+        $this->artisan('cms:bootstrap')->assertSuccessful();
+
+        $this->assertSame(0, HomeSlide::count());
     }
 
     public function test_admin_is_created_once_and_a_changed_password_is_kept(): void

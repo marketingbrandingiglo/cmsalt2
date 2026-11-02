@@ -5,10 +5,14 @@ namespace App\Console\Commands;
 use App\Models\AboutPage;
 use App\Models\Client;
 use App\Models\CompanyValue;
+use App\Models\HomeProduct;
+use App\Models\HomeSlide;
 use App\Models\Mascot;
 use App\Models\MilestoneLogo;
+use App\Models\NewsArticle;
 use App\Models\Partner;
 use App\Support\AboutContent;
+use App\Support\HomeContent;
 use App\Support\Media;
 use Illuminate\Console\Attributes\Description;
 use Illuminate\Console\Attributes\Signature;
@@ -18,14 +22,14 @@ use Illuminate\Support\Str;
 use Throwable;
 
 /**
- * Menyalin gambar/video halaman About dari frontend ke storage CMS, dengan
+ * Menyalin gambar/video halaman About & Beranda dari frontend ke storage CMS, dengan
  * path yang sama seperti yang tersimpan di database. Sumber bisa berupa
  * folder public/ frontend (mis. ../iglowebsitealt2/public) atau URL situs
  * frontend (mis. https://iglowebsitealt2.vercel.app). Setelah diimpor,
  * media bisa dipratinjau & diganti dari panel admin dan dilayani oleh CMS.
  */
 #[Signature('cms:import-assets {source : Folder public/ frontend atau URL situs frontend} {--force : Timpa file yang sudah ada}')]
-#[Description('Impor media halaman About dari folder public/ frontend ke storage CMS')]
+#[Description('Impor media halaman About & Beranda dari folder public/ frontend ke storage CMS')]
 class ImportAboutAssets extends Command
 {
     public function handle(): int
@@ -74,6 +78,7 @@ class ImportAboutAssets extends Command
         }
 
         AboutContent::flush();
+        HomeContent::flush();
 
         $this->info("Disalin: {$copied}, dilewati (sudah ada): {$skipped}, tidak ditemukan: ".count($missing));
 
@@ -133,6 +138,9 @@ class ImportAboutAssets extends Command
             ->merge(MilestoneLogo::pluck('logo'))
             ->merge(Partner::pluck('logo'))
             ->merge(Client::pluck('logo'))
+            ->merge(HomeSlide::pluck('image'))
+            ->merge(HomeProduct::pluck('image'))
+            ->merge(NewsArticle::pluck('image'))
             ->filter()
             ->reject(fn (string $path) => str_starts_with($path, 'http'))
             ->unique()

@@ -20,6 +20,8 @@ class DatabaseSeeder extends Seeder
             ],
         );
 
-        $this->call(AboutSeeder::class);
+        // Beranda dulu: AboutSeeder diakhiri impor media (bila CMS_ASSETS_SOURCE
+        // di-set) yang ikut menyalin media Beranda.
+        $this->call([HomeSeeder::class, AboutSeeder::class]);
     }
 }

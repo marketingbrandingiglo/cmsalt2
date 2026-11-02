@@ -39,6 +39,7 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->font('Plus Jakarta Sans')
             ->navigationGroups([
+                NavigationGroup::make('Beranda'),
                 NavigationGroup::make('Tentang Kami'),
             ])
             ->sidebarCollapsibleOnDesktop()

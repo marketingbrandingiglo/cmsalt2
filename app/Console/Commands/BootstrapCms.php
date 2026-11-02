@@ -4,9 +4,11 @@ namespace App\Console\Commands;
 
 use App\Console\Concerns\WaitsForDatabase;
 use App\Models\AboutPage;
+use App\Models\HomePage;
 use Closure;
 use Database\Seeders\AboutSeeder;
 use Database\Seeders\AdminUserSeeder;
+use Database\Seeders\HomeSeeder;
 use Illuminate\Console\Attributes\Description;
 use Illuminate\Console\Attributes\Signature;
 use Illuminate\Console\Command;
@@ -17,9 +19,10 @@ use Illuminate\Support\Facades\DB;
  * Start-up untuk hosting stateless (Vercel), dijalankan di background oleh
  * docker/vercel-start.sh sementara web server sudah listen:
  *  1. migrasi database,
- *  2. isi konten About awal sampai selesai SEKALI (penanda di cache database,
- *     jadi start yang terputus dilanjutkan di start berikutnya). Konten tidak
- *     pernah diisi ulang setelah itu — data yang dihapus editor tidak muncul lagi,
+ *  2. isi konten About awal, lalu konten Beranda awal, masing-masing sampai
+ *     selesai SEKALI (penanda di cache database, jadi start yang terputus
+ *     dilanjutkan di start berikutnya). Konten tidak pernah diisi ulang setelah
+ *     itu — data yang dihapus editor tidak muncul lagi,
  *  3. pastikan akun admin pertama (ADMIN_EMAIL/ADMIN_PASSWORD) ada,
  *  4. impor media dari CMS_ASSETS_SOURCE bila di-set (file yang ada dilewati).
  *
@@ -33,6 +36,8 @@ class BootstrapCms extends Command
     use WaitsForDatabase;
 
     public const SEED_MARKER = 'cms:initial-seed-done';
+
+    public const HOME_SEED_MARKER = 'cms:home-seed-done';
 
     private const LOCK_KEY = 4_815_162_342;
 
@@ -55,6 +60,17 @@ class BootstrapCms extends Command
                 }
 
                 Cache::forever(self::SEED_MARKER, true);
+            }
+
+            // Penanda terpisah agar database yang sudah berisi About (deploy
+            // sebelum ada Beranda) tetap mendapat konten Beranda awal sekali.
+            if (! Cache::get(self::HOME_SEED_MARKER)) {
+                if (! HomePage::query()->exists()) {
+                    $this->components->info('Konten Beranda kosong — mengisi konten Beranda awal.');
+                    $this->call('db:seed', ['--class' => HomeSeeder::class, '--force' => true]);
+                }
+
+                Cache::forever(self::HOME_SEED_MARKER, true);
             }
 
             $this->call('db:seed', ['--class' => AdminUserSeeder::class, '--force' => true]);
